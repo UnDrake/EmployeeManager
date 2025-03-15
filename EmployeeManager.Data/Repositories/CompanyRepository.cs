@@ -24,7 +24,7 @@ namespace EmployeeManager.Data.Repositories
             using (var conn = _dbHelper.GetConnection())
             {
                 conn.Open();
-                string query = "SELECT ID, Name FROM Companies";
+                string query = "SELECT ID, Name, Info FROM Companies";
 
                 using (var cmd = new SqlCommand(query, conn))
                 using (var reader = cmd.ExecuteReader())
@@ -34,7 +34,8 @@ namespace EmployeeManager.Data.Repositories
                         companies.Add(new Company
                         {
                             ID = reader.GetInt32(0),
-                            Name = reader.GetString(1)
+                            Name = reader.GetString(1),
+                            Info = reader.GetString(2)
                         });
                     }
                 }
