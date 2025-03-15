@@ -33,3 +33,6 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [D:/MVCProject/EmployeeManager/EmployeeManager.Desktop/Views/EmployeeListView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/MVCProject/EmployeeManager/EmployeeManager.Desktop/Views/SalaryReportWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

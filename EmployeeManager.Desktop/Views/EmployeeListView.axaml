@@ -12,14 +12,17 @@
         <TextBlock Text="Список сотрудников" FontSize="20" Margin="0 0 0 10"/>
 
         <!-- 🔹 Фильтры -->
-        <StackPanel Orientation="Horizontal" Margin="0 0 0 10" Spacing="10">
-            <TextBox Text="{Binding SearchName, Mode=TwoWay}" Watermark="Поиск по ФИО" Width="250"/>
-            <ComboBox ItemsSource="{Binding Positions}" SelectedItem="{Binding SelectedPosition}" Width="180"/>
-            <ComboBox ItemsSource="{Binding Departments}" SelectedItem="{Binding SelectedDepartment}" Width="180"/>
-            <Button Content="Применить" Command="{Binding ApplyFiltersCommand}" Width="100" Height="30"/>
-        </StackPanel>
+		<StackPanel Orientation="Horizontal" Margin="0 0 0 10" Spacing="10">
+			<TextBox Text="{Binding SearchName, Mode=TwoWay}" Watermark="Поиск по ФИО" Width="250"/>
+			<ComboBox ItemsSource="{Binding Positions}" SelectedItem="{Binding SelectedPosition}" Width="180"/>
+			<ComboBox ItemsSource="{Binding Departments}" SelectedItem="{Binding SelectedDepartment}" Width="180"/>
+			<TextBox Text="{Binding MinSalaryText, Mode=TwoWay}" Watermark="Мин. зарплата" Width="180"/>
+			<TextBox Text="{Binding MaxSalary, Mode=TwoWay}" Watermark="Макс. зарплата" Width="180"/>
+			<Button Content="Применить" Command="{Binding ApplyFiltersCommand}" Width="100" Height="30"/>
+		</StackPanel>
 
-        <!-- 🔹 Общая таблица с прокруткой -->
+
+		<!-- 🔹 Общая таблица с прокруткой -->
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Height="350">
             <StackPanel>
                 <!-- 🔹 Заголовки колонок -->
@@ -69,6 +72,7 @@
             <Button Content="Изменить" Command="{Binding UpdateEmployeeCommand}" Width="120" Height="35"/>
             <Button Content="Удалить" Command="{Binding DeleteEmployeeCommand}" Width="120" Height="35"/>
             <Button Content="Обновить" Command="{Binding RefreshCommand}" Width="120" Height="35"/>
-        </StackPanel>
+			<Button Content="Создать отчет" Command="{Binding OpenSalaryReportWindowCommand}" Width="120" Height="35"/>
+		</StackPanel>
     </StackPanel>
 </UserControl>

@@ -1,0 +1,28 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:EmployeeManager.Desktop.ViewModels"
+        x:Class="EmployeeManager.Desktop.Views.SalaryReportWindow"
+        x:DataType="vm:SalaryReportViewModel"
+        Title="Зарплатная ведомость" Width="600" Height="400">
+
+	<Window.DataContext>
+		<vm:SalaryReportViewModel/>
+	</Window.DataContext>
+
+	<StackPanel Margin="10">
+		<!-- Department Filter -->
+		<ComboBox ItemsSource="{Binding Departments}" SelectedItem="{Binding SelectedDepartment}" Width="180" Margin="0, 10, 0, 10" />
+
+		<Button Content="Сформировать отчет" Command="{Binding GenerateReportCommand}" Width="150" Height="30" Margin="0, 10, 0, 10" />
+
+		<!-- Total Salary Display -->
+		<TextBlock Text="Общая сумма окладов: " FontWeight="Bold" />
+		<TextBlock Text="{Binding TotalSalary}" FontSize="16" Margin="0, 10" />
+
+		<!-- Employee List -->
+		<DataGrid ItemsSource="{Binding Employees}" AutoGenerateColumns="True" Height="200" Width="500" Margin="0, 10, 0, 10"/>
+
+		<!-- Save Report Button -->
+		<Button Content="Сохранить отчет в файл" Command="{Binding SaveReportCommand}" Width="150" Height="30" Margin="0, 10, 0, 10" />
+	</StackPanel>
+</Window>
