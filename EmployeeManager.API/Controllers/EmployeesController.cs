@@ -2,6 +2,7 @@
 using EmployeeManager.API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using EmployeeManager.Models;
+using EmployeeManager.API.Services;
 
 namespace EmployeeManager.API.Controllers
 {
@@ -9,19 +10,19 @@ namespace EmployeeManager.API.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private readonly IEmployeeService _employeeService;
+        private readonly EmployeeService _employeeService;
 
-        public EmployeesController(IEmployeeService employeeService)
+        public EmployeesController(EmployeeService employeeService)
         {
             _employeeService = employeeService;
         }
 
-        [HttpGet]
+        /*[HttpGet]
         public async Task<ActionResult<List<EmployeeReadDto>>> GetEmployees()
         {
             var employees = _employeeService.GetAllEmployees();
             return Ok(employees);
-        }
+        }*/
 
         [HttpPost]
         public async Task<IActionResult> AddEmployee([FromBody] EmployeeCreateDto employeeDto)
@@ -53,5 +54,16 @@ namespace EmployeeManager.API.Controllers
             await _employeeService.DeleteEmployee(id);
             return Ok(new { message = "Сотрудник удалён" });
         }
+
+        [HttpGet]
+        public async Task<ActionResult<List<Employee>>> GetEmployees([FromQuery] string? company = null)
+        {
+            var employees = company == null
+                ? _employeeService.GetAllEmployees()
+                : _employeeService.GetEmployeesByCompany(company);
+
+            return Ok(employees);
+        }
+
     }
 }

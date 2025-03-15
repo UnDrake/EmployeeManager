@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using EmployeeManager.Desktop.ViewModels;
 
 namespace EmployeeManager.Desktop
 {
@@ -7,6 +8,8 @@ namespace EmployeeManager.Desktop
         public MainWindow()
         {
             InitializeComponent();
+            MainWindowViewModel.Instance.Initialize(); // »нициализируем начальное представление
+            DataContext = MainWindowViewModel.Instance;
         }
     }
 }

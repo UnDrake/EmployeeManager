@@ -12,6 +12,7 @@
         public string Position { get; set; }  // ✅ Должность
         public string Department { get; set; }  // ✅ Отдел
         public string Address { get; set; }  // ✅ Адрес
+        public string Company { get; set; }
     }
 
 }

@@ -25,6 +25,9 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [D:/MVCProject/EmployeeManager/EmployeeManager.Desktop/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[D:/MVCProject/EmployeeManager/EmployeeManager.Desktop/Views/CompanySelectionView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [D:/MVCProject/EmployeeManager/EmployeeManager.Desktop/Views/EmployeeDetailView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 

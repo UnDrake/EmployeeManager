@@ -1,8 +1,14 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:EmployeeManager.Desktop.ViewModels"
         xmlns:views="clr-namespace:EmployeeManager.Desktop.Views"
         x:Class="EmployeeManager.Desktop.MainWindow"
-        Title="Employee Manager" Width="800" Height="600">
+        x:DataType="vm:MainWindowViewModel"
+        Title="Employee Manager" Width="600" Height="400">
 
-	<views:EmployeeListView/>
+	<Window.DataContext>
+		<vm:MainWindowViewModel/>
+	</Window.DataContext>
+
+	<ContentControl Content="{Binding CurrentView}" />
 </Window>

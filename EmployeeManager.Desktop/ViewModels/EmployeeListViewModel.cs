@@ -5,17 +5,18 @@ using System.Windows.Input;
 using EmployeeManager.Desktop.Services;
 using EmployeeManager.Models;
 using ReactiveUI;
-using EmployeeManager.Desktop.Views;
-using Avalonia.Controls.ApplicationLifetimes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Avalonia.Controls.ApplicationLifetimes;
+using EmployeeManager.Desktop.Views;
 
 namespace EmployeeManager.Desktop.ViewModels
 {
     public class EmployeeListViewModel : ReactiveObject
     {
         private readonly ApiService _apiService;
+        private readonly string _companyName;
         private List<Employee> _allEmployees = new();
 
         public ObservableCollection<Employee> Employees { get; } = new();
@@ -69,9 +70,14 @@ namespace EmployeeManager.Desktop.ViewModels
         public ICommand DeleteEmployeeCommand { get; }
         public ICommand RefreshCommand { get; }
 
-        public EmployeeListViewModel()
+        public EmployeeListViewModel() : this(new ApiService(), "DefaultCompany")
         {
-            _apiService = new ApiService();
+        }
+
+        public EmployeeListViewModel(ApiService apiService, string companyName)
+        {
+            _apiService = apiService;
+            _companyName = companyName;
 
             ApplyFiltersCommand = ReactiveCommand.Create(ApplyFilters);
             AddEmployeeCommand = ReactiveCommand.CreateFromTask(AddEmployeeAsync);
@@ -84,7 +90,7 @@ namespace EmployeeManager.Desktop.ViewModels
 
         private async Task LoadEmployeesAsync()
         {
-            _allEmployees = await _apiService.GetEmployeesAsync();
+            _allEmployees = await _apiService.GetEmployeesByCompanyAsync(_companyName);
             Employees.Clear();
             Positions.Clear();
             Departments.Clear();
@@ -125,7 +131,8 @@ namespace EmployeeManager.Desktop.ViewModels
                 HireDate = DateTime.Now,
                 Salary = 50000,
                 Department = "QA",
-                Address = "Примерный адрес"
+                Address = "Примерный адрес",
+                Company = _companyName
             };
 
             await OpenEmployeeDialog(newEmployee);

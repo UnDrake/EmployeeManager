@@ -11,6 +11,8 @@
         public string Position { get; set; }  // Название должности (вместо ID)
         public string Department { get; set; }  // Название отдела
         public string Address { get; set; }  // Город
+        public string Company { get; set; } // ✅ Компания
+
 
     }
 }

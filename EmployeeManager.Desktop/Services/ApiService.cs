@@ -49,5 +49,17 @@ namespace EmployeeManager.Desktop.Services
             return response.IsSuccessStatusCode;
         }
 
+        public async Task<List<Company>> GetCompaniesAsync()
+        {
+            return await _httpClient.GetFromJsonAsync<List<Company>>("companies") ?? new List<Company>();
+        }
+
+        public async Task<List<Employee>> GetEmployeesByCompanyAsync(string companyName)
+        {
+            var data = await _httpClient.GetFromJsonAsync<List<Employee>>($"employees?company={companyName}") ?? new List<Employee>();
+            return data;
+        }
+
+
     }
 }

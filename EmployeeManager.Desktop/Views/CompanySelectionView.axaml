@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:EmployeeManager.Desktop.ViewModels"
+             x:Class="EmployeeManager.Desktop.Views.CompanySelectionView"
+             x:DataType="vm:CompanySelectionViewModel">
+
+	<UserControl.DataContext>
+		<vm:CompanySelectionViewModel/>
+	</UserControl.DataContext>
+
+	<StackPanel Margin="20">
+		<TextBlock Text="Выберите компанию" FontSize="24" Margin="0 0 0 20" TextAlignment="Center"/>
+
+		<ListBox ItemsSource="{Binding Companies}"
+                 SelectedItem="{Binding SelectedCompany}"
+                 Height="200">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding Name}"/>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+			<Button Content="Выбрать" Command="{Binding SelectCompanyCommand}" Width="120" Margin="5"/>
+			<Button Content="Обновить" Command="{Binding RefreshCompaniesCommand}" Width="120" Margin="5"/>
+		</StackPanel>
+	</StackPanel>
+</UserControl>

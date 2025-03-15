@@ -1,6 +1,7 @@
 ﻿using EmployeeManager.API.DTOs;
 using EmployeeManager.API.Interfaces;
 using EmployeeManager.Data.Interfaces;
+using EmployeeManager.Data.Repositories;
 using EmployeeManager.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,9 @@ namespace EmployeeManager.API.Services
 {
     public class EmployeeService : IEmployeeService
     {
-        private readonly IBaseRepository<Employee> _employeeRepository;
+        private readonly EmployeeRepository _employeeRepository;
 
-        public EmployeeService(IBaseRepository<Employee> employeeRepository)
+        public EmployeeService(EmployeeRepository employeeRepository)
         {
             _employeeRepository = employeeRepository;
         }
@@ -32,6 +33,7 @@ namespace EmployeeManager.API.Services
                     Position = e.Position,
                     Department = e.Department,
                     Address = e.Address,
+                    Company = e.Company
                 })
                 .ToList();
         }
@@ -49,6 +51,7 @@ namespace EmployeeManager.API.Services
                 Position = employeeDto.Position,
                 Department = employeeDto.Department,
                 Address = employeeDto.Address,
+                Company = employeeDto.Company
             };
 
             await _employeeRepository.Create(employee);
@@ -66,5 +69,12 @@ namespace EmployeeManager.API.Services
             var employee = new Employee { ID = id };
             await _employeeRepository.Delete(employee);
         }
+
+        public List<EmployeeReadDto> GetEmployeesByCompany(string companyName)
+        {
+            var employees = _employeeRepository.GetEmployeesByCompany(companyName);
+            return employees.Select(e => new EmployeeReadDto(e)).ToList();
+        }
+
     }
 }
