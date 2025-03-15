@@ -1,0 +1,15 @@
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\bin\Debug\net8.0\EmployeeManager.Data.deps.json
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\bin\Debug\net8.0\EmployeeManager.Data.dll
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\bin\Debug\net8.0\EmployeeManager.Data.pdb
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\EmployeeManager.Data.csproj.AssemblyReference.cache
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\EmployeeManager.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\EmployeeManager.Data.AssemblyInfoInputs.cache
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\EmployeeManager.Data.AssemblyInfo.cs
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\EmployeeManager.Data.csproj.CoreCompileInputs.cache
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\EmployeeManager.Data.dll
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\refint\EmployeeManager.Data.dll
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\EmployeeManager.Data.pdb
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\ref\EmployeeManager.Data.dll
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\Employee.10019450.Up2Date
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\bin\Debug\net8.0\EmployeeManager.Models.dll
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\bin\Debug\net8.0\EmployeeManager.Models.pdb

@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:conv="clr-namespace:EmployeeManager.Desktop.Converters"
+             xmlns:vm="clr-namespace:EmployeeManager.Desktop.ViewModels"
+             x:Class="EmployeeManager.Desktop.Views.EmployeeDetailView"
+             x:DataType="vm:EmployeeDetailViewModel">
+
+    <UserControl.Resources>
+        <conv:DateTimeToDateTimeOffsetConverter x:Key="DateTimeConverter"/>
+    </UserControl.Resources>
+
+    <StackPanel>
+        <TextBlock Text="Данные сотрудника" FontSize="20" Margin="10"/>
+        
+        <TextBox Text="{Binding Employee.FullName}" Watermark="ФИО" Margin="5"/>
+        <TextBox Text="{Binding Employee.Phone}" Watermark="Телефон" Margin="5"/>
+        <DatePicker SelectedDate="{Binding Employee.BirthDate, Converter={StaticResource DateTimeConverter}}" Margin="5"/>
+        <DatePicker SelectedDate="{Binding Employee.HireDate, Converter={StaticResource DateTimeConverter}}" Margin="5"/>
+        <TextBox Text="{Binding Employee.Salary}" Watermark="Оклад" Margin="5"/>
+        <TextBox Text="{Binding Employee.Position}" Watermark="Должность" Margin="5"/>
+        <TextBox Text="{Binding Employee.Department}" Watermark="Отдел" Margin="5"/>
+        <TextBox Text="{Binding Employee.Address}" Watermark="Адрес" Margin="5"/>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Button Content="Сохранить" Command="{Binding SaveCommand}" Margin="5"/>
+            <Button Content="Отмена" Command="{Binding CancelCommand}" Margin="5"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

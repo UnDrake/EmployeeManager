@@ -1,0 +1,10 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="EmployeeManager.Desktop.App"
+             RequestedThemeVariant="Light">
+	<!-- Используем правильное свойство -->
+
+	<Application.Styles>
+		<FluentTheme/>
+	</Application.Styles>
+</Application>
