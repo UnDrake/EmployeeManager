@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:EmployeeManager.Desktop.ViewModels"
+        x:Class="EmployeeManager.Desktop.Views.CompanyInfoWindow"
+        Title="Company Information"
+        Width="600"
+        Height="400">
+
+	<Window.DataContext>
+		<vm:CompanyInfoViewModel />
+	</Window.DataContext>
+
+	<StackPanel Margin="20">
+		<!-- Заголовок окна -->
+		<TextBlock Text="Company Information" FontSize="24" HorizontalAlignment="Center" Margin="0 0 0 20"/>
+
+		<!-- Блок с информацией о компании -->
+		<StackPanel Margin="0 0 0 10">
+			<TextBlock Text="Company Name:" FontWeight="Bold" />
+			<TextBlock Text="{Binding SelectedCompany.Name}" FontSize="16" Margin="0 0 0 10"/>
+
+			<TextBlock Text="Company Info:" FontWeight="Bold" />
+			<TextBlock Text="{Binding SelectedCompany.Info}" FontSize="14" Margin="0 0 0 20"/>
+
+			<!-- Пример кнопки для закрытия окна -->
+			<Button Content="Close" HorizontalAlignment="Center" Command="{Binding CloseCommand}" Width="100"/>
+		</StackPanel>
+	</StackPanel>
+
+</Window>

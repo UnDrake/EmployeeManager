@@ -8,22 +8,26 @@
 		<vm:CompanySelectionViewModel/>
 	</UserControl.DataContext>
 
-	<StackPanel Margin="20">
-		<TextBlock Text="Выберите компанию" FontSize="24" Margin="0 0 0 20" TextAlignment="Center"/>
+	<StackPanel Margin="20" Background="#5e3a8c">
+		<TextBlock Text="Select Company" FontSize="24" Margin="0 0 0 20" TextAlignment="Center" Foreground="White"/>
 
 		<ListBox ItemsSource="{Binding Companies}"
                  SelectedItem="{Binding SelectedCompany}"
-                 Height="200">
+                 Height="200"
+                 Background="#7f58a2"
+                 BorderBrush="White" BorderThickness="1"
+                 SelectionMode="Single">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<TextBlock Text="{Binding Name}"/>
+					<TextBlock Text="{Binding Name}" Foreground="White" Padding="10"/>
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>
 
 		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-			<Button Content="Выбрать" Command="{Binding SelectCompanyCommand}" Width="120" Margin="5"/>
-			<Button Content="Обновить" Command="{Binding RefreshCompaniesCommand}" Width="120" Margin="5"/>
+			<Button Content="Select" Command="{Binding SelectCompanyCommand}" Width="140" Margin="5" Background="#9b7ce0" Foreground="White" BorderBrush="White" BorderThickness="1" Padding="10"/>
+			<Button Content="View Company Info" Command="{Binding ViewCompanyInfoCommand}" Width="160" Margin="5" Background="#9b7ce0" Foreground="White" BorderBrush="White" BorderThickness="1" Padding="10"/>
 		</StackPanel>
 	</StackPanel>
+
 </UserControl>

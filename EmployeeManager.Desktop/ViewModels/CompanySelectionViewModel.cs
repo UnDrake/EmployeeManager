@@ -28,6 +28,7 @@ namespace EmployeeManager.Desktop.ViewModels
             _apiService = new ApiService();
             SelectCompanyCommand = ReactiveCommand.Create(SelectCompany);
             RefreshCompaniesCommand = ReactiveCommand.CreateFromTask(LoadCompaniesAsync);
+            ViewCompanyInfoCommand = ReactiveCommand.Create(ViewCompanyInfo);
 
             _ = LoadCompaniesAsync();
         }
@@ -49,6 +50,23 @@ namespace EmployeeManager.Desktop.ViewModels
                     DataContext = new EmployeeListViewModel(_apiService, SelectedCompany.Name) // Привязываем модель данных
                 };
                 MainWindowViewModel.Instance.CurrentView = employeeListView; // Обновляем представление в главном окне
+            }
+        }
+
+        public ICommand ViewCompanyInfoCommand { get; }
+
+        private void ViewCompanyInfo()
+        {
+            if (SelectedCompany != null)
+            {
+                // Create the window and pass the main window as the owner
+                var companyInfoWindow = new CompanyInfoWindow
+                {
+                    DataContext = new CompanyInfoViewModel(SelectedCompany)
+                };
+
+                // Make sure to pass the main window as the owner
+                companyInfoWindow.ShowDialog(App.Current.MainWindow);
             }
         }
 
