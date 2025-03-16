@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "D:\\MVCProject\\EmployeeManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\views\\employeelistview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\views\\employeelistview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\views\\companyselectionview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\views\\companyselectionview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\viewmodels\\companyinfoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\viewmodels\\companyinfoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\views\\companyselectionview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\views\\companyselectionview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\viewmodels\\companyselectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\viewmodels\\companyselectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\viewmodels\\employeelistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\viewmodels\\employeelistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -61,41 +69,71 @@
               "Name": "ST:6:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EmployeeListView.axaml",
-              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\EmployeeListView.axaml",
-              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\Views\\EmployeeListView.axaml",
-              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\EmployeeListView.axaml",
-              "RelativeToolTip": "EmployeeManager.Desktop\\Views\\EmployeeListView.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-16T06:47:05.155Z",
+              "DocumentIndex": 2,
+              "Title": "CompanySelectionView.axaml.cs",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\CompanySelectionView.axaml.cs",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\Views\\CompanySelectionView.axaml.cs",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\CompanySelectionView.axaml.cs",
+              "RelativeToolTip": "EmployeeManager.Desktop\\Views\\CompanySelectionView.axaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T08:12:24.662Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "CompanySelectionViewModel.cs",
               "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\CompanySelectionViewModel.cs",
               "RelativeDocumentMoniker": "EmployeeManager.Desktop\\ViewModels\\CompanySelectionViewModel.cs",
               "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\CompanySelectionViewModel.cs",
               "RelativeToolTip": "EmployeeManager.Desktop\\ViewModels\\CompanySelectionViewModel.cs",
-              "ViewState": "AQIAAEQAAAAAAAAAAAAowE4AAAAqAAAA",
+              "ViewState": "AQIAAEkAAAAAAAAAAAAUwHUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T06:32:50.827Z",
+              "WhenOpened": "2025-03-16T08:10:28.175Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EmployeeListViewModel.cs",
-              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\EmployeeListViewModel.cs",
-              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\ViewModels\\EmployeeListViewModel.cs",
-              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\EmployeeListViewModel.cs",
-              "RelativeToolTip": "EmployeeManager.Desktop\\ViewModels\\EmployeeListViewModel.cs",
-              "ViewState": "AQIAAHEAAAAAAAAAAIA4wH4AAAAmAAAA",
+              "DocumentIndex": 1,
+              "Title": "CompanyInfoViewModel.cs",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\CompanyInfoViewModel.cs",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\ViewModels\\CompanyInfoViewModel.cs",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\CompanyInfoViewModel.cs",
+              "RelativeToolTip": "EmployeeManager.Desktop\\ViewModels\\CompanyInfoViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T06:22:23.785Z",
+              "WhenOpened": "2025-03-16T08:10:27.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindowViewModel.cs",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\ViewModels\\MainWindowViewModel.cs",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeToolTip": "EmployeeManager.Desktop\\ViewModels\\MainWindowViewModel.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAgwCIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T08:07:33.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CompanySelectionView.axaml",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\CompanySelectionView.axaml",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\Views\\CompanySelectionView.axaml",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\CompanySelectionView.axaml",
+              "RelativeToolTip": "EmployeeManager.Desktop\\Views\\CompanySelectionView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-16T07:39:44.609Z",
               "EditorCaption": ""
             }
           ]

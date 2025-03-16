@@ -8,14 +8,22 @@
         <vm:CompanySelectionViewModel/>
     </UserControl.DataContext>
 
+
     <StackPanel Margin="20" Background="#5e3a8c">
-        <TextBlock Text="Select Company" FontSize="24" Margin="0 0 0 20" TextAlignment="Center" Foreground="White"/>
+        <TextBlock Text="Select Company" FontSize="24" TextAlignment="Center" Foreground="White"/>
 
         <ListBox ItemsSource="{Binding Companies}"
                  SelectedItem="{Binding SelectedCompany}"
                  Height="200"
                  Background="#7f58a2"
                  SelectionMode="Single">
+			
+			<ListBox.Styles>
+				<Style Selector="ListBoxItem:selected /template/ContentPresenter">
+					<Setter Property="Background" Value="#9b7ce0"/>
+				</Style>
+			</ListBox.Styles>
+
 			
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -24,8 +32,8 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Button Content="Select" Command="{Binding SelectCompanyCommand}" Width="140" Margin="5" Background="#9b7ce0" Foreground="White" Padding="10"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0" Spacing="20">
+            <Button Content="Select" Command="{Binding SelectCompanyCommand}" Width="140" Margin="5" IsEnabled="{Binding IsCompanySelected}" Background="#9b7ce0" Foreground="White" Padding="10"/>
             <Button Content="Deselect" Command="{Binding DeselectCompanyCommand}" Width="120" Margin="5" IsEnabled="{Binding IsCompanySelected}" Background="#9b7ce0" Foreground="White" Padding="10"/>
             <Button Content="View Company Info" Command="{Binding ViewCompanyInfoCommand}" Width="160" Margin="5" IsEnabled="{Binding IsCompanySelected}" Background="#9b7ce0" Foreground="White" Padding="10"/>
         </StackPanel>

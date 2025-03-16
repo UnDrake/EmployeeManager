@@ -3,26 +3,24 @@
         xmlns:vm="clr-namespace:EmployeeManager.Desktop.ViewModels"
         x:Class="EmployeeManager.Desktop.Views.SalaryReportWindow"
         x:DataType="vm:SalaryReportViewModel"
-        Title="Зарплатная ведомость" Width="600" Height="400">
+        Title="Зарплатная ведомость" Width="300" Height="250">
 
 	<Window.DataContext>
 		<vm:SalaryReportViewModel/>
 	</Window.DataContext>
 
-	<StackPanel Margin="10">
-		<!-- Department Filter -->
-		<ComboBox ItemsSource="{Binding Departments}" SelectedItem="{Binding SelectedDepartment}" Width="180" Margin="0, 10, 0, 10" />
+	<StackPanel Background="#5e3a8c" Margin="20" HorizontalAlignment="Center">
+		<!-- Заголовок -->
+		<TextBlock Text="Total salaries by filter" FontSize="20" HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Foreground="White" Margin="10"/>
 
-		<Button Content="Сформировать отчет" Command="{Binding GenerateReportCommand}" Width="150" Height="30" Margin="0, 10, 0, 10" />
+		<!-- Сумма окладов -->
+		<Border BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="20" Padding="10">
+			<TextBlock Text="{Binding TotalSalary}" FontSize="24" Foreground="White" HorizontalAlignment="Center"/>
+		</Border>
 
-		<!-- Total Salary Display -->
-		<TextBlock Text="Общая сумма окладов: " FontWeight="Bold" />
-		<TextBlock Text="{Binding TotalSalary}" FontSize="16" Margin="0, 10" />
-
-		<!-- Employee List -->
-		<DataGrid ItemsSource="{Binding Employees}" AutoGenerateColumns="True" Height="200" Width="500" Margin="0, 10, 0, 10"/>
-
-		<!-- Save Report Button -->
-		<Button Content="Сохранить отчет в файл" Command="{Binding SaveReportCommand}" Width="150" Height="30" Margin="0, 10, 0, 10" />
+		<!-- Сохранить отчет в файл -->
+		<Button Content="Save" Command="{Binding SaveReportCommand}" Width="150" Height="35" Background="#9b7ce0" Foreground="White" BorderBrush="White"
+                BorderThickness="1" Padding="10" Margin="20" HorizontalAlignment="Center"/>
 	</StackPanel>
 </Window>
