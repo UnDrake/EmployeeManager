@@ -18,20 +18,18 @@ namespace EmployeeManager.Data.Repositories
             SqlParameter[] parameters =
             {
                 new SqlParameter("@DepartmentName", departmentName),
-                new SqlParameter("@CompanyID", companyID)
             };
 
             int? existingId = await ExecuteScalarAsync<int?>(query, parameters);
-            return existingId ?? await AddDepartmentAsync(departmentName, companyID);
+            return existingId ?? await AddDepartmentAsync(departmentName);
         }
 
-        private async Task<int> AddDepartmentAsync(string departmentName, int companyID)
+        private async Task<int> AddDepartmentAsync(string departmentName)
         {
-            string query = "INSERT INTO Departments (Name, CompanyID) OUTPUT INSERTED.ID VALUES (@DepartmentName, @CompanyID)";
+            string query = "INSERT INTO Departments (Name) OUTPUT INSERTED.ID VALUES (@DepartmentName)";
             SqlParameter[] parameters =
             {
                 new SqlParameter("@DepartmentName", departmentName),
-                new SqlParameter("@CompanyID", companyID)
             };
 
             return await ExecuteScalarAsync<int>(query, parameters);

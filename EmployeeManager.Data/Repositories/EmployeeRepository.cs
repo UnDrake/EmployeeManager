@@ -25,33 +25,6 @@ namespace EmployeeManager.Data.Repositories
             _addressRepository = addressRepository ?? throw new ArgumentNullException(nameof(addressRepository));
         }
 
-        public async Task<IEnumerable<Employee>> GetAllAsync()
-        {
-            string query = @"
-                SELECT e.ID, e.FullName, e.Phone, e.BirthDate, e.HireDate, e.Salary,
-                       p.Name AS Position, d.Name AS Department, c.Name AS Company,
-                       a.Address
-                FROM Employees e
-                JOIN Positions p ON e.PositionID = p.ID
-                JOIN Departments d ON p.DepartmentID = d.ID
-                JOIN Companies c ON e.CompanyID = c.ID
-                JOIN Addresses a ON e.AddressID = a.ID";
-
-            return await ExecuteReaderAsync(query, Array.Empty<SqlParameter>(), reader => new Employee
-            {
-                ID = reader.GetInt32(0),
-                FullName = reader.GetString(1),
-                Phone = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
-                BirthDate = reader.IsDBNull(3) ? null : reader.GetDateTime(3),
-                HireDate = reader.GetDateTime(4),
-                Salary = reader.GetDecimal(5),
-                Position = reader.GetString(6),
-                Department = reader.GetString(7),
-                Company = reader.GetString(8),
-                Address = reader.GetString(9)
-            });
-        }
-
         public async Task<IEnumerable<Employee>> GetEmployeesByCompanyAsync(string companyName)
         {
             string query = @"

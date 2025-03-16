@@ -3,24 +3,44 @@
   "WorkspaceRootPath": "D:\\MVCProject\\EmployeeManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\views\\employeelistview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\views\\employeelistview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\viewmodels\\salaryreportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\viewmodels\\salaryreportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\views\\salaryreportwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\views\\salaryreportwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17B43692-41C6-4AE7-B7B0-217A3C27227B}|EmployeeManager.Data\\EmployeeManager.Infrastructure.csproj|d:\\mvcproject\\employeemanager\\employeemanager.data\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17B43692-41C6-4AE7-B7B0-217A3C27227B}|EmployeeManager.Data\\EmployeeManager.Infrastructure.csproj|solutionrelative:employeemanager.data\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\services\\employeeapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\services\\employeeapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\viewmodels\\employeedetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\viewmodels\\employeedetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17B43692-41C6-4AE7-B7B0-217A3C27227B}|EmployeeManager.Data\\EmployeeManager.Infrastructure.csproj|d:\\mvcproject\\employeemanager\\employeemanager.data\\repositories\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17B43692-41C6-4AE7-B7B0-217A3C27227B}|EmployeeManager.Data\\EmployeeManager.Infrastructure.csproj|solutionrelative:employeemanager.data\\repositories\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\views\\employeedetailview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\views\\employeedetailview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\viewmodels\\employeelistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\viewmodels\\employeelistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\utils\\employeemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\utils\\employeemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\viewmodels\\companyselectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\viewmodels\\companyselectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E81812A-727B-499A-9405-3A4BDB679D21}|Models\\EmployeeManager.Shared.csproj|d:\\mvcproject\\employeemanager\\models\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E81812A-727B-499A-9405-3A4BDB679D21}|Models\\EmployeeManager.Shared.csproj|solutionrelative:models\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{639176AE-3EE8-4045-A036-61703777BD0B}|EmployeeManager.Core\\EmployeeManager.Core.csproj|d:\\mvcproject\\employeemanager\\employeemanager.core\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{639176AE-3EE8-4045-A036-61703777BD0B}|EmployeeManager.Core\\EmployeeManager.Core.csproj|solutionrelative:employeemanager.core\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -69,70 +89,131 @@
               "Name": "ST:6:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.axaml",
-              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\MainWindow.axaml",
-              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\MainWindow.axaml",
-              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\MainWindow.axaml",
-              "RelativeToolTip": "EmployeeManager.Desktop\\MainWindow.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-16T19:27:37.228Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CompanySelectionViewModel.cs",
-              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\CompanySelectionViewModel.cs",
-              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\ViewModels\\CompanySelectionViewModel.cs",
-              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\CompanySelectionViewModel.cs",
-              "RelativeToolTip": "EmployeeManager.Desktop\\ViewModels\\CompanySelectionViewModel.cs",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAnwFMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T19:23:46.725Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EmployeeListView.axaml",
-              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\EmployeeListView.axaml",
-              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\Views\\EmployeeListView.axaml",
-              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\EmployeeListView.axaml",
-              "RelativeToolTip": "EmployeeManager.Desktop\\Views\\EmployeeListView.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-16T19:16:52.93Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\Models\\Models\\Employee.cs",
-              "RelativeDocumentMoniker": "Models\\Models\\Employee.cs",
-              "ToolTip": "D:\\MVCProject\\EmployeeManager\\Models\\Models\\Employee.cs",
-              "RelativeToolTip": "Models\\Models\\Employee.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA5AAAA",
+              "Title": "SalaryReportViewModel.cs",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\SalaryReportViewModel.cs",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\ViewModels\\SalaryReportViewModel.cs",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\SalaryReportViewModel.cs",
+              "RelativeToolTip": "EmployeeManager.Desktop\\ViewModels\\SalaryReportViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T19:05:32.508Z",
+              "WhenOpened": "2025-03-16T21:08:11.137Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "SalaryReportWindow.axaml",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\SalaryReportWindow.axaml",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\Views\\SalaryReportWindow.axaml",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\SalaryReportWindow.axaml",
+              "RelativeToolTip": "EmployeeManager.Desktop\\Views\\SalaryReportWindow.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-16T21:08:07.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmployeeApiService.cs",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Services\\EmployeeApiService.cs",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\Services\\EmployeeApiService.cs",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Services\\EmployeeApiService.cs",
+              "RelativeToolTip": "EmployeeManager.Desktop\\Services\\EmployeeApiService.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAADwvy8AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T21:06:07.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DepartmentRepository.cs",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Data\\Repositories\\DepartmentRepository.cs",
+              "RelativeDocumentMoniker": "EmployeeManager.Data\\Repositories\\DepartmentRepository.cs",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Data\\Repositories\\DepartmentRepository.cs",
+              "RelativeToolTip": "EmployeeManager.Data\\Repositories\\DepartmentRepository.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAQwBkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T21:04:27.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeeRepository.cs",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Data\\Repositories\\EmployeeRepository.cs",
+              "RelativeDocumentMoniker": "EmployeeManager.Data\\Repositories\\EmployeeRepository.cs",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Data\\Repositories\\EmployeeRepository.cs",
+              "RelativeToolTip": "EmployeeManager.Data\\Repositories\\EmployeeRepository.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwBoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T21:03:05.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Core\\Services\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "EmployeeManager.Core\\Services\\EmployeeService.cs",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Core\\Services\\EmployeeService.cs",
+              "RelativeToolTip": "EmployeeManager.Core\\Services\\EmployeeService.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAswBkAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T20:51:54.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EmployeeMapper.cs",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Utils\\EmployeeMapper.cs",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\Utils\\EmployeeMapper.cs",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Utils\\EmployeeMapper.cs",
+              "RelativeToolTip": "EmployeeManager.Desktop\\Utils\\EmployeeMapper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T20:51:43.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "EmployeeListViewModel.cs",
               "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\EmployeeListViewModel.cs",
               "RelativeDocumentMoniker": "EmployeeManager.Desktop\\ViewModels\\EmployeeListViewModel.cs",
               "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\EmployeeListViewModel.cs",
               "RelativeToolTip": "EmployeeManager.Desktop\\ViewModels\\EmployeeListViewModel.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAuwBsAAAAJAAAA",
+              "ViewState": "AQIAAOsAAAAAAAAAAAAkwP0AAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T18:47:28.43Z",
+              "WhenOpened": "2025-03-16T20:51:17.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmployeeDetailViewModel.cs",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\EmployeeDetailViewModel.cs",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\ViewModels\\EmployeeDetailViewModel.cs",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\EmployeeDetailViewModel.cs",
+              "RelativeToolTip": "EmployeeManager.Desktop\\ViewModels\\EmployeeDetailViewModel.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAowDcAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T20:28:05.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EmployeeDetailView.axaml",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\EmployeeDetailView.axaml",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\Views\\EmployeeDetailView.axaml",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\EmployeeDetailView.axaml",
+              "RelativeToolTip": "EmployeeManager.Desktop\\Views\\EmployeeDetailView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-16T20:10:57.701Z",
               "EditorCaption": ""
             }
           ]

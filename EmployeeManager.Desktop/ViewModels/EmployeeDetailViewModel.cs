@@ -1,18 +1,26 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using EmployeeManager.Desktop.Services;
+﻿using EmployeeManager.Desktop.Services;
 using EmployeeManager.Desktop.Utils;
 using EmployeeManager.Shared.Models;
 using ReactiveUI;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using System;
 
 namespace EmployeeManager.Desktop.ViewModels
 {
+
     public class EmployeeDetailViewModel : ReactiveObject
     {
         private readonly EmployeeApiService _employeeApiService;
         private readonly Action _onClose;
         private readonly Employee _employee;
+
+        private string _errorMessage = string.Empty;
+        public string ErrorMessage
+        {
+            get => _errorMessage;
+            set => this.RaiseAndSetIfChanged(ref _errorMessage, value);
+        }
 
         public Employee Employee => _employee;
 
@@ -31,7 +39,19 @@ namespace EmployeeManager.Desktop.ViewModels
 
         private async Task SaveAsync()
         {
-            if (_employee.ID == 0)
+            if (string.IsNullOrWhiteSpace(Employee.FullName) ||
+                string.IsNullOrWhiteSpace(Employee.Phone) ||
+                Employee.BirthDate == null ||
+                Employee.HireDate == null ||
+                string.IsNullOrWhiteSpace(Employee.Position) ||
+                string.IsNullOrWhiteSpace(Employee.Department) ||
+                string.IsNullOrWhiteSpace(Employee.Address))
+            {
+                ErrorMessage = "All fields mustn't be empty.";
+                return; 
+            }
+
+            if (Employee.ID == 0)
             {
                 await _employeeApiService.AddEmployeeAsync(EmployeeMapper.ToCreateDto(_employee));
             }
@@ -45,4 +65,5 @@ namespace EmployeeManager.Desktop.ViewModels
 
         private void CloseDialog() => _onClose.Invoke();
     }
+
 }

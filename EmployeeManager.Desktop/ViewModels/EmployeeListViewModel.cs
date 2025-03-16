@@ -251,7 +251,7 @@ namespace EmployeeManager.Desktop.ViewModels
             var viewModel = new EmployeeDetailViewModel(_employeeApiService, employee, dialog.Close);
             dialog.Content = new EmployeeDetailView { DataContext = viewModel };
             dialog.Width = 500;
-            dialog.Height = 720;
+            dialog.Height = 750;
             dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
             if (App.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop && desktop.MainWindow != null)

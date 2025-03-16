@@ -7,58 +7,141 @@
 
 	<UserControl.Resources>
 		<conv:DateTimeToDateTimeOffsetConverter x:Key="DateTimeConverter"/>
+		<conv:StringEmptyToVisibilityConverter x:Key="StringEmptyToVisibilityConverter"/>
 	</UserControl.Resources>
 
 	<StackPanel Background="#5e3a8c" Margin="20">
-		<TextBlock Text="Employee Data" FontSize="24" HorizontalAlignment="Center"
-                   Foreground="White" Margin="0 0 20 20"/>
+
+		<TextBlock Text="Employee Data"
+                   FontSize="24"
+                   HorizontalAlignment="Center"
+                   Foreground="White"
+                   Margin="0 0 20 20"/>
 
 		<StackPanel Margin="0 0 0 10" Spacing="15">
-			<TextBox Text="{Binding Employee.FullName}" Watermark="Full Name"
-                     Background="#7f58a2" Foreground="White" BorderBrush="White"
-                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
 
-			<TextBox Text="{Binding Employee.Phone}" Watermark="Phone"
-                     Background="#7f58a2" Foreground="White" BorderBrush="White"
-                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
+			<TextBox Text="{Binding Employee.FullName}"
+                     Watermark="Full Name"
+                     Background="#7f58a2"
+                     Foreground="Black"
+                     BorderBrush="White"
+                     BorderThickness="1"
+                     Margin="5"
+                     Padding="10"
+                     Height="40"/>
+
+			<TextBox Text="{Binding Employee.Phone}"
+                     Watermark="Phone"
+                     Background="#7f58a2"
+                     Foreground="Black"
+                     BorderBrush="White"
+                     BorderThickness="1"
+                     Margin="5"
+                     Padding="10"
+                     Height="40"/>
 
 			<DatePicker SelectedDate="{Binding Employee.BirthDate, Converter={StaticResource DateTimeConverter}}"
-					Background="#7f58a2" Foreground="White" BorderBrush="White"
-					BorderThickness="1" Padding="5" HorizontalAlignment="Stretch" />
+                     Background="#7f58a2"
+                     Foreground="Black"
+                     BorderBrush="White"
+                     BorderThickness="1"
+                     Padding="5"
+                     HorizontalAlignment="Stretch"/>
 
 			<DatePicker SelectedDate="{Binding Employee.HireDate, Converter={StaticResource DateTimeConverter}}"
-                        Background="#7f58a2" Foreground="White" BorderBrush="White"
-						BorderThickness="1" Padding="5" HorizontalAlignment="Stretch" />
+                     Background="#7f58a2"
+                     Foreground="Black"
+                     BorderBrush="White"
+                     BorderThickness="1"
+                     Padding="5"
+                     HorizontalAlignment="Stretch"/>
 
-			<TextBox Text="{Binding Employee.Salary}" Watermark="Salary"
-                     Background="#7f58a2" Foreground="White" BorderBrush="White"
-                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
+			<TextBox Text="{Binding Employee.Salary}"
+                     Watermark="Salary"
+                     Background="#7f58a2"
+                     Foreground="Black"
+                     BorderBrush="White"
+                     BorderThickness="1"
+                     Margin="5"
+                     Padding="10"
+                     Height="40"/>
 
-			<TextBox Text="{Binding Employee.Position}" Watermark="Position"
-                     Background="#7f58a2" Foreground="White" BorderBrush="White"
-                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
+			<TextBox Text="{Binding Employee.Position}"
+                     Watermark="Position"
+                     Background="#7f58a2"
+                     Foreground="Black"
+                     BorderBrush="White"
+                     BorderThickness="1"
+                     Margin="5"
+                     Padding="10"
+                     Height="40"/>
 
-			<TextBox Text="{Binding Employee.Department}" Watermark="Department"
-                     Background="#7f58a2" Foreground="White" BorderBrush="White"
-                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
+			<TextBox Text="{Binding Employee.Department}"
+                     Watermark="Department"
+                     Background="#7f58a2"
+                     Foreground="Black"
+                     BorderBrush="White"
+                     BorderThickness="1"
+                     Margin="5"
+                     Padding="10"
+                     Height="40"/>
 
-			<TextBox Text="{Binding Employee.Address}" Watermark="Address"
-                     Background="#7f58a2" Foreground="White" BorderBrush="White"
-                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
+			<TextBox Text="{Binding Employee.Address}"
+                     Watermark="Address"
+                     Background="#7f58a2"
+                     Foreground="Black"
+                     BorderBrush="White"
+                     BorderThickness="1"
+                     Margin="5"
+                     Padding="10"
+                     Height="40"/>
 
-			<TextBox Text="{Binding Employee.Company}" Watermark="Company"
-                     Background="#7f58a2" Foreground="White" BorderBrush="White"
-                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
+			<TextBox Text="{Binding Employee.Company}"
+                     Watermark="Company"
+                     Background="#bfb0d1"
+                     Foreground="Black"
+                     BorderBrush="White"
+                     BorderThickness="1"
+                     Margin="5"
+                     Padding="10"
+                     Height="40"
+                     IsReadOnly="True"
+                     Focusable="False"/>
+
+			<TextBlock Text="{Binding ErrorMessage}"
+					 HorizontalAlignment="Center"
+                     Foreground="Red"
+                     Margin="5"
+                     IsVisible="{Binding ErrorMessage, Converter={StaticResource StringEmptyToVisibilityConverter}}"/>
 
 		</StackPanel>
 
-		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-			<Button Content="Save" Command="{Binding SaveCommand}" Width="120"
-                    Background="#9b7ce0" Foreground="White" BorderBrush="White"
-                    BorderThickness="1" Padding="10" Margin="5" Height="35"/>
-			<Button Content="Cancel" Command="{Binding CancelCommand}" Width="120"
-                    Background="#9b7ce0" Foreground="White" BorderBrush="White"
-                    BorderThickness="1" Padding="10" Margin="5" Height="35"/>
+		<StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="10"
+                    Spacing="10">
+
+			<Button Content="Save"
+                    Command="{Binding SaveCommand}"
+                    Width="120"
+                    Background="#9b7ce0"
+                    Foreground="White"
+                    BorderBrush="White"
+                    BorderThickness="1"
+                    Padding="10"
+                    Height="35"/>
+
+			<Button Content="Cancel"
+                    Command="{Binding CancelCommand}"
+                    Width="120"
+                    Background="#9b7ce0"
+                    Foreground="White"
+                    BorderBrush="White"
+                    BorderThickness="1"
+                    Padding="10"
+                    Height="35"/>
+
 		</StackPanel>
+
 	</StackPanel>
 </UserControl>
