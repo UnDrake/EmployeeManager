@@ -8,7 +8,7 @@ namespace EmployeeManager.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            MainWindowViewModel.Instance.Initialize(); // »нициализируем начальное представление
+            MainWindowViewModel.Instance.Initialize();
             DataContext = MainWindowViewModel.Instance;
         }
     }

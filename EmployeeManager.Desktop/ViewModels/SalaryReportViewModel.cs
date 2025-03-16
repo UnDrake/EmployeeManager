@@ -1,9 +1,10 @@
 ﻿using ReactiveUI;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Windows.Input;
 using EmployeeManager.Shared.Models;
-using System.Collections.Generic;
 
 namespace EmployeeManager.Desktop.ViewModels
 {
@@ -16,63 +17,26 @@ namespace EmployeeManager.Desktop.ViewModels
             set
             {
                 this.RaiseAndSetIfChanged(ref _employees, value);
-                this.RaisePropertyChanged(nameof(TotalSalary));  // Notify that total salary changed
+                this.RaisePropertyChanged(nameof(TotalSalary));
             }
         }
 
-        // Property to hold departments
-        private ObservableCollection<string> _departments;
-        public ObservableCollection<string> Departments
-        {
-            get => _departments;
-            set => this.RaiseAndSetIfChanged(ref _departments, value);
-        }
+        public decimal TotalSalary => Employees.Sum(e => e.Salary);
 
-        // Total salary for the filtered employees
-        public decimal TotalSalary => Employees?.Sum(e => e.Salary) ?? 0;
-
-        // Department filter (for generating report)
-        private string _selectedDepartment;
-        public string SelectedDepartment
-        {
-            get => _selectedDepartment;
-            set => this.RaiseAndSetIfChanged(ref _selectedDepartment, value);
-        }
-
-        // Command to save the report
         public ICommand SaveReportCommand { get; }
 
-        // Command to generate the report
-        public ICommand GenerateReportCommand { get; }
+        public SalaryReportViewModel() : this(new List<Employee>()) { }
 
-        // Constructor
-        public SalaryReportViewModel()
+        public SalaryReportViewModel(IEnumerable<Employee> employees)
         {
+            _employees = new ObservableCollection<Employee>(employees);
             SaveReportCommand = ReactiveCommand.Create(SaveReport);
-            GenerateReportCommand = ReactiveCommand.Create(GenerateReport);
         }
 
-        // Constructor with filtered employees
-        public SalaryReportViewModel(IEnumerable<Employee> employees) : this()
-        {
-            Employees = new ObservableCollection<Employee>(employees);
-            Departments = new ObservableCollection<string>(employees.Select(e => e.Department).Distinct());
-        }
-
-        // Logic to generate report, typically you'd do calculations or transformations here
-        private void GenerateReport()
-        {
-            // Logic to generate report based on selected department or other filters
-            // This is just an example, customize as needed.
-            var filteredEmployees = Employees.Where(e => e.Department == SelectedDepartment).ToList();
-            Employees = new ObservableCollection<Employee>(filteredEmployees);
-        }
-
-        // Logic to save the report in a file
         private void SaveReport()
         {
-            var filePath = "salary_report.txt"; // File path to save the report
-            using (var writer = new System.IO.StreamWriter(filePath))
+            const string filePath = "salary_report.txt";
+            using (var writer = new StreamWriter(filePath))
             {
                 writer.WriteLine("Salary Report");
                 writer.WriteLine("=======================================");

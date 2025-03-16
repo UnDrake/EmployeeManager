@@ -4,7 +4,7 @@
     {
         public int ID { get; set; }
         public string FullName { get; set; } = string.Empty;
-        public string? Phone { get; set; }
+        public string Phone { get; set; } = string.Empty;
         public DateTime? BirthDate { get; set; }
         public DateTime HireDate { get; set; }
         public decimal Salary { get; set; }

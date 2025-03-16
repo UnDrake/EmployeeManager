@@ -10,16 +10,13 @@
 	</Window.DataContext>
 
 	<StackPanel Background="#5e3a8c" Margin="20" HorizontalAlignment="Center">
-		<!-- Заголовок -->
 		<TextBlock Text="Total salaries by filter" FontSize="20" HorizontalAlignment="Center"
                    VerticalAlignment="Center" Foreground="White" Margin="10"/>
 
-		<!-- Сумма окладов -->
 		<Border BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="20" Padding="10">
 			<TextBlock Text="{Binding TotalSalary}" FontSize="24" Foreground="White" HorizontalAlignment="Center"/>
 		</Border>
 
-		<!-- Сохранить отчет в файл -->
 		<Button Content="Save" Command="{Binding SaveReportCommand}" Width="150" Height="35" Background="#9b7ce0" Foreground="White" BorderBrush="White"
                 BorderThickness="1" Padding="10" Margin="20" HorizontalAlignment="Center"/>
 	</StackPanel>

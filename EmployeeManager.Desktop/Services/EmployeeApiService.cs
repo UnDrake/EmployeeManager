@@ -68,7 +68,7 @@ namespace EmployeeManager.Desktop.Services
         {
             try
             {
-                var response = await _httpClient.PutAsJsonAsync($"{ApiEndpoints.Employees}/{employee.ID}", employee);
+                var response = await _httpClient.PutAsJsonAsync($"{ApiEndpoints.Employees}", employee);
                 return response.IsSuccessStatusCode;
             }
             catch (Exception ex)

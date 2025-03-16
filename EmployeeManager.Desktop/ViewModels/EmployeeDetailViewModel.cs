@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 using EmployeeManager.Desktop.Services;
-using EmployeeManager.Shared.DTOs.Employee;
+using EmployeeManager.Desktop.Utils;
 using EmployeeManager.Shared.Models;
 using ReactiveUI;
 
@@ -12,13 +12,9 @@ namespace EmployeeManager.Desktop.ViewModels
     {
         private readonly EmployeeApiService _employeeApiService;
         private readonly Action _onClose;
-        private Employee _employee;
+        private readonly Employee _employee;
 
-        public Employee Employee
-        {
-            get => _employee;
-            set => this.RaiseAndSetIfChanged(ref _employee, value);
-        }
+        public Employee Employee => _employee;
 
         public ICommand SaveCommand { get; }
         public ICommand CancelCommand { get; }
@@ -26,8 +22,8 @@ namespace EmployeeManager.Desktop.ViewModels
         public EmployeeDetailViewModel(EmployeeApiService employeeApiService, Employee employee, Action onClose)
         {
             _employeeApiService = employeeApiService;
-            _employee = employee;
-            _onClose = onClose;
+            _employee = employee ?? throw new ArgumentNullException(nameof(employee));
+            _onClose = onClose ?? throw new ArgumentNullException(nameof(onClose));
 
             SaveCommand = ReactiveCommand.CreateFromTask(SaveAsync);
             CancelCommand = ReactiveCommand.Create(CloseDialog);
@@ -37,40 +33,16 @@ namespace EmployeeManager.Desktop.ViewModels
         {
             if (_employee.ID == 0)
             {
-                var employeeDto = new EmployeeCreateDto
-                {
-                    FullName = _employee.FullName,
-                    Phone = _employee.Phone,
-                    Salary = _employee.Salary,
-                    Position = _employee.Position,
-                    Department = _employee.Department,
-                    Address = _employee.Address,
-                    Company = _employee.Company
-                };
-
-                await _employeeApiService.AddEmployeeAsync(employeeDto);
+                await _employeeApiService.AddEmployeeAsync(EmployeeMapper.ToCreateDto(_employee));
             }
             else
             {
-                var employeeUpdateDto = new EmployeeUpdateDto
-                {
-                    ID = _employee.ID,
-                    FullName = _employee.FullName,
-                    Phone = _employee.Phone,
-                    Salary = _employee.Salary,
-                    Position = _employee.Position,
-                    Department = _employee.Department,
-                    Address = _employee.Address,
-                    Company = _employee.Company
-                };
-
-                await _employeeApiService.UpdateEmployeeAsync(employeeUpdateDto);
+                await _employeeApiService.UpdateEmployeeAsync(EmployeeMapper.ToUpdateDto(_employee));
             }
 
             CloseDialog();
         }
 
-
-        private void CloseDialog() => _onClose?.Invoke();
+        private void CloseDialog() => _onClose.Invoke();
     }
 }

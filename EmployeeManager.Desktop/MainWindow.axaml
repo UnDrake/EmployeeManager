@@ -4,7 +4,7 @@
         xmlns:views="clr-namespace:EmployeeManager.Desktop.Views"
         x:Class="EmployeeManager.Desktop.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Title="Employee Manager" Width="600" Height="400">
+        Title="Employee Manager" Width="550" Height="330">
 
 	<Window.DataContext>
 		<vm:MainWindowViewModel/>

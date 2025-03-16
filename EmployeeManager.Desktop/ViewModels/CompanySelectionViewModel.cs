@@ -5,16 +5,17 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls;
 using EmployeeManager.Desktop.Services;
 using EmployeeManager.Desktop.Views;
-using EmployeeManager.Shared.Models;
-using ReactiveUI;
 using EmployeeManager.Shared.DTOs.Company;
+using ReactiveUI;
 using Microsoft.Extensions.DependencyInjection;
+using DynamicData;
 
 namespace EmployeeManager.Desktop.ViewModels
 {
     public class CompanySelectionViewModel : ReactiveObject
     {
         private readonly CompanyApiService _companyApiService;
+
         public ObservableCollection<CompanyReadDto> Companies { get; } = new();
 
         private CompanyReadDto? _selectedCompany;
@@ -35,26 +36,25 @@ namespace EmployeeManager.Desktop.ViewModels
         public ICommand DeselectCompanyCommand { get; }
         public ICommand ViewCompanyInfoCommand { get; }
 
-
         public CompanySelectionViewModel() : this(App.Services.GetRequiredService<CompanyApiService>()) { }
 
         public CompanySelectionViewModel(CompanyApiService companyApiService)
         {
             _companyApiService = companyApiService;
-            SelectCompanyCommand = ReactiveCommand.Create(SelectCompany);
+
+            SelectCompanyCommand = ReactiveCommand.Create(SelectCompany, this.WhenAnyValue(x => x.IsCompanySelected));
             RefreshCompaniesCommand = ReactiveCommand.CreateFromTask(LoadCompaniesAsync);
             ViewCompanyInfoCommand = ReactiveCommand.CreateFromTask(ViewCompanyInfo, this.WhenAnyValue(x => x.IsCompanySelected));
             DeselectCompanyCommand = ReactiveCommand.Create(() => SelectedCompany = null);
 
-            _ = LoadCompaniesAsync();
+            LoadCompaniesAsync().ConfigureAwait(false);
         }
 
         private async Task LoadCompaniesAsync()
         {
-            var companies = await _companyApiService.GetCompaniesAsync();
+            var companies = await _companyApiService.GetCompaniesAsync().ConfigureAwait(false);
             Companies.Clear();
-            foreach (var company in companies)
-                Companies.Add(company);
+            Companies.AddRange(companies);
         }
 
         private void SelectCompany()
@@ -63,17 +63,15 @@ namespace EmployeeManager.Desktop.ViewModels
 
             var employeeListView = new EmployeeListView
             {
-                DataContext = new EmployeeListViewModel(_companyApiService, SelectedCompany.Name)
+                DataContext = new EmployeeListViewModel(SelectedCompany.Name)
             };
 
-            if (App.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+            if (App.Current != null && App.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop &&
+                desktop.MainWindow is Window mainWindow)
             {
-                if (desktop.MainWindow is Window mainWindow)
-                {
-                    mainWindow.Width = 880;
-                    mainWindow.Height = 630;
-                    MainWindowViewModel.Instance.CurrentView = employeeListView;
-                }
+                mainWindow.Width = 880;
+                mainWindow.Height = 630;
+                MainWindowViewModel.Instance.CurrentView = employeeListView;
             }
         }
 
@@ -81,16 +79,9 @@ namespace EmployeeManager.Desktop.ViewModels
         {
             if (SelectedCompany == null) return;
 
-            var dialog = new CompanyInfoWindow();
-            var viewModel = new CompanyInfoViewModel(SelectedCompany);
+            var dialog = new CompanyInfoWindow(new CompanyInfoViewModel(SelectedCompany));
 
-            dialog.DataContext = viewModel;
-            dialog.Width = 400;
-            dialog.Height = 300;
-            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-
-
-            if (App.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+            if (App.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop && desktop.MainWindow != null)
             {
                 await dialog.ShowDialog(desktop.MainWindow);
             }

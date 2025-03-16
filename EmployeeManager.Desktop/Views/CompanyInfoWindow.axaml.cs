@@ -1,13 +1,14 @@
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+using EmployeeManager.Desktop.ViewModels;
 
-namespace EmployeeManager.Desktop.Views;
-
-public partial class CompanyInfoWindow : Window
+namespace EmployeeManager.Desktop.Views
 {
-    public CompanyInfoWindow()
+    public partial class CompanyInfoWindow : Window
     {
-        InitializeComponent();
+        public CompanyInfoWindow(CompanyInfoViewModel viewModel)
+        {
+            InitializeComponent();
+            DataContext = viewModel;
+        }
     }
 }
