@@ -19,14 +19,17 @@
       <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.3" />
     <PackageReference Include="ReactiveUI" Version="20.1.63" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\EmployeeManager.Models.csproj" />
+    <UpToDateCheckInput Remove="Views\CompanySelectionView.axaml" />
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Views\CompanySelectionView.axaml" />
+    <ProjectReference Include="..\Models\EmployeeManager.Shared.csproj" />
   </ItemGroup>
 </Project>

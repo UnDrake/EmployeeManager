@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Models.csproj": {
-                "projectPath": "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Models.csproj"
+              "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Shared.csproj": {
+                "projectPath": "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Shared.csproj"
               }
             }
           }
@@ -73,6 +73,18 @@
               "target": "Package",
               "version": "[11.2.1, )"
             },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
             "ReactiveUI": {
               "target": "Package",
               "version": "[20.1.63, )"
@@ -98,12 +110,12 @@
         }
       }
     },
-    "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Models.csproj": {
+    "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Models.csproj",
-        "projectName": "EmployeeManager.Models",
-        "projectPath": "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Models.csproj",
+        "projectUniqueName": "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Shared.csproj",
+        "projectName": "EmployeeManager.Shared",
+        "projectPath": "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Shared.csproj",
         "packagesPath": "D:\\Program Files (x86)\\Nuget",
         "outputPath": "D:\\MVCProject\\EmployeeManager\\Models\\obj\\",
         "projectStyle": "PackageReference",

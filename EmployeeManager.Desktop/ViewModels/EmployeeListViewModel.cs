@@ -3,7 +3,7 @@ using Avalonia.Controls;
 using EmployeeManager.Desktop.Services;
 using EmployeeManager.Desktop.ViewModels;
 using EmployeeManager.Desktop.Views;
-using EmployeeManager.Models;
+using EmployeeManager.Shared.Models;
 using ReactiveUI;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,13 +11,15 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System;
 using System.Linq;
+using Microsoft.Extensions.DependencyInjection;
 
 
 namespace EmployeeManager.Desktop.ViewModels
 {
     public class EmployeeListViewModel : ReactiveObject
     {
-        private readonly ApiService _apiService;
+        private readonly CompanyApiService _companyApiService;
+        private readonly EmployeeApiService _employeeApiService;
         private readonly string _companyName;
         private List<Employee> _allEmployees = new();
 
@@ -128,13 +130,15 @@ namespace EmployeeManager.Desktop.ViewModels
         }
 
 
-        public EmployeeListViewModel() : this(new ApiService(), "DefaultCompany")
+        public EmployeeListViewModel() : this(App.Services.GetRequiredService<CompanyApiService>(), 
+            "DefaultCompany")
         {
         }
 
-        public EmployeeListViewModel(ApiService apiService, string companyName)
+        public EmployeeListViewModel(CompanyApiService companyApiService, string companyName)
         {
-            _apiService = apiService;
+            _companyApiService = companyApiService;
+            _employeeApiService = App.Services.GetRequiredService<EmployeeApiService>();
             _companyName = companyName;
 
             ApplyFiltersCommand = ReactiveCommand.Create(ApplyFilters);
@@ -149,7 +153,21 @@ namespace EmployeeManager.Desktop.ViewModels
 
         private async Task LoadEmployeesAsync()
         {
-            _allEmployees = await _apiService.GetEmployeesByCompanyAsync(_companyName);
+            var employeeDtos = await _employeeApiService.GetEmployeesByCompanyAsync(_companyName);
+
+            // Преобразование DTO -> Model
+            _allEmployees = employeeDtos.Select(dto => new Employee
+            {
+                ID = dto.ID,
+                FullName = dto.FullName,
+                Phone = dto.Phone,
+                Salary = dto.Salary,
+                Position = dto.Position,
+                Department = dto.Department,
+                Address = dto.Address,
+                Company = dto.Company
+            }).ToList(); // <-- Преобразуем List<EmployeeReadDto> в List<Employee>
+
             Employees.Clear();
             Positions.Clear();
             Departments.Clear();
@@ -162,6 +180,7 @@ namespace EmployeeManager.Desktop.ViewModels
                 if (!Departments.Contains(emp.Department)) Departments.Add(emp.Department);
             }
         }
+
 
         private void ApplyFilters()
         {
@@ -209,14 +228,14 @@ namespace EmployeeManager.Desktop.ViewModels
 
         private async Task DeleteEmployeeAsync()
         {
-            if (SelectedEmployee != null && await _apiService.DeleteEmployeeAsync(SelectedEmployee.ID))
+            if (SelectedEmployee != null && await _employeeApiService.DeleteEmployeeAsync(SelectedEmployee.ID))
                 Employees.Remove(SelectedEmployee);
         }
 
         private async Task OpenEmployeeDialog(Employee employee)
         {
             var dialog = new Window();
-            var viewModel = new EmployeeDetailViewModel(_apiService, employee, dialog.Close);
+            var viewModel = new EmployeeDetailViewModel(_employeeApiService, employee, dialog.Close);
 
             dialog.Content = new EmployeeDetailView { DataContext = viewModel };
             dialog.Width = 500;

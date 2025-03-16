@@ -1,4 +1,5 @@
-﻿using EmployeeManager.Models;
+﻿using EmployeeManager.Shared.DTOs.Company;
+using EmployeeManager.Shared.Models;
 using ReactiveUI;
 using System;
 using System.Windows.Input;
@@ -7,21 +8,11 @@ namespace EmployeeManager.Desktop.ViewModels
 {
     public class CompanyInfoViewModel : ReactiveObject
     {
-        private readonly Action _onClose;
+        public CompanyReadDto SelectedCompany { get; }
 
-        private Company _selectedCompany;
-        public Company SelectedCompany
+        public CompanyInfoViewModel(CompanyReadDto company)
         {
-            get => _selectedCompany;
-            set => this.RaiseAndSetIfChanged(ref _selectedCompany, value);
+            SelectedCompany = company;
         }
-
-        public CompanyInfoViewModel(Company company, Action onClose)
-        {
-            _onClose = onClose;
-            _selectedCompany = company;
-        }
-
-        private void CloseDialog() => _onClose?.Invoke();
     }
 }

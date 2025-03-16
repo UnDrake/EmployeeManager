@@ -2,14 +2,15 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 using EmployeeManager.Desktop.Services;
-using EmployeeManager.Models;
+using EmployeeManager.Shared.DTOs.Employee;
+using EmployeeManager.Shared.Models;
 using ReactiveUI;
 
 namespace EmployeeManager.Desktop.ViewModels
 {
     public class EmployeeDetailViewModel : ReactiveObject
     {
-        private readonly ApiService _apiService;
+        private readonly EmployeeApiService _employeeApiService;
         private readonly Action _onClose;
         private Employee _employee;
 
@@ -22,9 +23,9 @@ namespace EmployeeManager.Desktop.ViewModels
         public ICommand SaveCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public EmployeeDetailViewModel(ApiService apiService, Employee employee, Action onClose)
+        public EmployeeDetailViewModel(EmployeeApiService employeeApiService, Employee employee, Action onClose)
         {
-            _apiService = apiService;
+            _employeeApiService = employeeApiService;
             _employee = employee;
             _onClose = onClose;
 
@@ -35,12 +36,40 @@ namespace EmployeeManager.Desktop.ViewModels
         private async Task SaveAsync()
         {
             if (_employee.ID == 0)
-                await _apiService.AddEmployeeAsync(_employee);
+            {
+                var employeeDto = new EmployeeCreateDto
+                {
+                    FullName = _employee.FullName,
+                    Phone = _employee.Phone,
+                    Salary = _employee.Salary,
+                    Position = _employee.Position,
+                    Department = _employee.Department,
+                    Address = _employee.Address,
+                    Company = _employee.Company
+                };
+
+                await _employeeApiService.AddEmployeeAsync(employeeDto);
+            }
             else
-                await _apiService.UpdateEmployeeAsync(_employee);
+            {
+                var employeeUpdateDto = new EmployeeUpdateDto
+                {
+                    ID = _employee.ID,
+                    FullName = _employee.FullName,
+                    Phone = _employee.Phone,
+                    Salary = _employee.Salary,
+                    Position = _employee.Position,
+                    Department = _employee.Department,
+                    Address = _employee.Address,
+                    Company = _employee.Company
+                };
+
+                await _employeeApiService.UpdateEmployeeAsync(employeeUpdateDto);
+            }
 
             CloseDialog();
         }
+
 
         private void CloseDialog() => _onClose?.Invoke();
     }

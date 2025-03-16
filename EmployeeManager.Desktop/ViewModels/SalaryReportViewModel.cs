@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using EmployeeManager.Models;
+using EmployeeManager.Shared.Models;
 using System.Collections.Generic;
 
 namespace EmployeeManager.Desktop.ViewModels

@@ -2,7 +2,7 @@
 using System.Globalization;
 using Avalonia.Data.Converters;
 
-namespace EmployeeManager.Desktop.Converters
+namespace EmployeeManager.Desktop.Utils
 {
     public class DateTimeToDateTimeOffsetConverter : IValueConverter
     {
