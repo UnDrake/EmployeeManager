@@ -5,25 +5,73 @@
              x:Class="EmployeeManager.Desktop.Views.EmployeeDetailView"
              x:DataType="vm:EmployeeDetailViewModel">
 
-    <UserControl.Resources>
-        <conv:DateTimeToDateTimeOffsetConverter x:Key="DateTimeConverter"/>
-    </UserControl.Resources>
+	<UserControl.Resources>
+		<conv:DateTimeToDateTimeOffsetConverter x:Key="DateTimeConverter"/>
+	</UserControl.Resources>
 
-    <StackPanel>
-        <TextBlock Text="Данные сотрудника" FontSize="20" Margin="10"/>
-        
-        <TextBox Text="{Binding Employee.FullName}" Watermark="ФИО" Margin="5"/>
-        <TextBox Text="{Binding Employee.Phone}" Watermark="Телефон" Margin="5"/>
-        <DatePicker SelectedDate="{Binding Employee.BirthDate, Converter={StaticResource DateTimeConverter}}" Margin="5"/>
-        <DatePicker SelectedDate="{Binding Employee.HireDate, Converter={StaticResource DateTimeConverter}}" Margin="5"/>
-        <TextBox Text="{Binding Employee.Salary}" Watermark="Оклад" Margin="5"/>
-        <TextBox Text="{Binding Employee.Position}" Watermark="Должность" Margin="5"/>
-        <TextBox Text="{Binding Employee.Department}" Watermark="Отдел" Margin="5"/>
-        <TextBox Text="{Binding Employee.Address}" Watermark="Адрес" Margin="5"/>
+	<StackPanel Background="#5e3a8c" Margin="20">
+		<!-- Заголовок -->
+		<TextBlock Text="Employee Data" FontSize="24" HorizontalAlignment="Center"
+                   Foreground="White" Margin="0 0 20 20"/>
 
-        <StackPanel Orientation="Horizontal" Margin="10">
-            <Button Content="Сохранить" Command="{Binding SaveCommand}" Margin="5"/>
-            <Button Content="Отмена" Command="{Binding CancelCommand}" Margin="5"/>
-        </StackPanel>
-    </StackPanel>
+		<!-- Блок с данными сотрудника -->
+		<StackPanel Margin="0 0 0 10" Spacing="15">
+			<!-- Поле с ФИО -->
+			<TextBox Text="{Binding Employee.FullName}" Watermark="Full Name"
+                     Background="#7f58a2" Foreground="White" BorderBrush="White"
+                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
+
+			<!-- Поле с номером телефона -->
+			<TextBox Text="{Binding Employee.Phone}" Watermark="Phone"
+                     Background="#7f58a2" Foreground="White" BorderBrush="White"
+                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
+
+			<!-- Поле с датой рождения -->
+			<DatePicker SelectedDate="{Binding Employee.BirthDate, Converter={StaticResource DateTimeConverter}}"
+					Background="#7f58a2" Foreground="White" BorderBrush="White"
+					BorderThickness="1" Padding="5" HorizontalAlignment="Stretch" />
+
+
+			<!-- Поле с датой найма -->
+			<DatePicker SelectedDate="{Binding Employee.HireDate, Converter={StaticResource DateTimeConverter}}"
+                        Background="#7f58a2" Foreground="White" BorderBrush="White"
+						BorderThickness="1" Padding="5" HorizontalAlignment="Stretch" />
+
+			<!-- Поле с окладом -->
+			<TextBox Text="{Binding Employee.Salary}" Watermark="Salary"
+                     Background="#7f58a2" Foreground="White" BorderBrush="White"
+                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
+
+			<!-- Поле с должностью -->
+			<TextBox Text="{Binding Employee.Position}" Watermark="Position"
+                     Background="#7f58a2" Foreground="White" BorderBrush="White"
+                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
+
+			<!-- Поле с отделом -->
+			<TextBox Text="{Binding Employee.Department}" Watermark="Department"
+                     Background="#7f58a2" Foreground="White" BorderBrush="White"
+                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
+
+			<!-- Поле с адресом -->
+			<TextBox Text="{Binding Employee.Address}" Watermark="Address"
+                     Background="#7f58a2" Foreground="White" BorderBrush="White"
+                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
+
+			<!-- Поле с адресом -->
+			<TextBox Text="{Binding Employee.Company}" Watermark="Company"
+                     Background="#7f58a2" Foreground="White" BorderBrush="White"
+                     BorderThickness="1" Margin="5" Padding="10" Height="40"/>
+
+		</StackPanel>
+
+		<!-- Кнопки действия -->
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+			<Button Content="Save" Command="{Binding SaveCommand}" Width="120"
+                    Background="#9b7ce0" Foreground="White" BorderBrush="White"
+                    BorderThickness="1" Padding="10" Margin="5" Height="35"/>
+			<Button Content="Cancel" Command="{Binding CancelCommand}" Width="120"
+                    Background="#9b7ce0" Foreground="White" BorderBrush="White"
+                    BorderThickness="1" Padding="10" Margin="5" Height="35"/>
+		</StackPanel>
+	</StackPanel>
 </UserControl>

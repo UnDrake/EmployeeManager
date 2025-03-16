@@ -220,7 +220,7 @@ namespace EmployeeManager.Desktop.ViewModels
 
             dialog.Content = new EmployeeDetailView { DataContext = viewModel };
             dialog.Width = 500;
-            dialog.Height = 450;
+            dialog.Height = 720;
             dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
             if (App.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)

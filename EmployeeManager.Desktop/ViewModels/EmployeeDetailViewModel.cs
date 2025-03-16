@@ -22,7 +22,6 @@ namespace EmployeeManager.Desktop.ViewModels
         public ICommand SaveCommand { get; }
         public ICommand CancelCommand { get; }
 
-        // ❌ УДАЛЯЕМ ПУСТОЙ КОНСТРУКТОР
         public EmployeeDetailViewModel(ApiService apiService, Employee employee, Action onClose)
         {
             _apiService = apiService;

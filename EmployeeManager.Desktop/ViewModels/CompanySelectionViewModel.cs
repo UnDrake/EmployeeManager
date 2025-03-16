@@ -58,18 +58,34 @@ namespace EmployeeManager.Desktop.ViewModels
             foreach (var company in companies)
                 Companies.Add(company);
         }
+
         private void SelectCompany()
         {
             if (SelectedCompany != null)
             {
-                // Создаем представление (UserControl), а не модель
+                // Создаем представление (UserControl)
                 var employeeListView = new EmployeeListView
                 {
-                    DataContext = new EmployeeListViewModel(_apiService, SelectedCompany.Name) // Привязываем модель данных
+                    DataContext = new EmployeeListViewModel(_apiService, SelectedCompany.Name),
                 };
-                MainWindowViewModel.Instance.CurrentView = employeeListView; // Обновляем представление в главном окне
+
+                // Получаем ссылку на главное окно
+                if (App.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+                {
+                    var mainWindow = desktop.MainWindow as Window;
+
+                    // Автоматически подгоняем размеры главного окна под контент
+                    mainWindow.Width = 880;  // Автоматически ширина
+                    mainWindow.Height = 630; // Автоматически высота
+
+                    // Обновляем представление в главном окне
+                    MainWindowViewModel.Instance.CurrentView = employeeListView;
+                }
             }
         }
+
+
+
 
         public ICommand ViewCompanyInfoCommand { get; }
 
