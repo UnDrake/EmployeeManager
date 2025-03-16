@@ -1,8 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
-using EmployeeManager.Models;
 using EmployeeManager.Infrastructure;
-
+using EmployeeManager.Shared.Models;
 
 namespace EmployeeManager.Data.Repositories
 {
@@ -38,7 +37,7 @@ namespace EmployeeManager.Data.Repositories
                 JOIN Companies c ON e.CompanyID = c.ID
                 JOIN Addresses a ON e.AddressID = a.ID";
 
-            return await ExecuteReaderAsync(query, new SqlParameter[] { }, reader => new Employee
+            return await ExecuteReaderAsync(query, Array.Empty<SqlParameter>(), reader => new Employee
             {
                 ID = reader.GetInt32(0),
                 FullName = reader.GetString(1),
@@ -99,7 +98,7 @@ namespace EmployeeManager.Data.Repositories
             SqlParameter[] parameters =
             {
                 new SqlParameter("@FullName", entity.FullName),
-                new SqlParameter("@Phone", (object)entity.Phone ?? DBNull.Value),
+                new SqlParameter("@Phone", (object ?)entity.Phone ?? DBNull.Value),
                 new SqlParameter("@BirthDate", (object ?)entity.BirthDate ?? DBNull.Value),
                 new SqlParameter("@HireDate", entity.HireDate),
                 new SqlParameter("@Salary", entity.Salary),
@@ -129,7 +128,7 @@ namespace EmployeeManager.Data.Repositories
             {
                 new SqlParameter("@ID", entity.ID),
                 new SqlParameter("@FullName", entity.FullName),
-                new SqlParameter("@Phone", (object)entity.Phone ?? DBNull.Value),
+                new SqlParameter("@Phone", (object ?)entity.Phone ?? DBNull.Value),
                 new SqlParameter("@BirthDate", (object ?)entity.BirthDate ?? DBNull.Value),
                 new SqlParameter("@HireDate", entity.HireDate),
                 new SqlParameter("@Salary", entity.Salary),

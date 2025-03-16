@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EmployeeManager.Core\EmployeeManager.Core.csproj" />
     <ProjectReference Include="..\EmployeeManager.Data\EmployeeManager.Infrastructure.csproj" />
-    <ProjectReference Include="..\Models\EmployeeManager.Models.csproj" />
+    <ProjectReference Include="..\Models\EmployeeManager.Shared.csproj" />
   </ItemGroup>
 
 </Project>

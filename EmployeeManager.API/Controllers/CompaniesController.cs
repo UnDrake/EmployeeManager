@@ -1,8 +1,6 @@
-﻿using EmployeeManager.API.Services;
-using EmployeeManager.Models;
+﻿using EmployeeManager.Core.Interfaces;
+using EmployeeManager.Shared.DTOs.Company;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace EmployeeManager.API.Controllers
 {
@@ -10,18 +8,28 @@ namespace EmployeeManager.API.Controllers
     [ApiController]
     public class CompaniesController : ControllerBase
     {
-        private readonly CompanyService _companyService;
+        private readonly ICompanyService _companyService;
+        private readonly ILogger<CompaniesController> _logger;
 
-        public CompaniesController(CompanyService companyService)
+        public CompaniesController(ICompanyService companyService, ILogger<CompaniesController> logger)
         {
-            _companyService = companyService;
+            _companyService = companyService ?? throw new ArgumentNullException(nameof(companyService));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        // ✅ Получение всех компаний
         [HttpGet]
-        public async Task<ActionResult<List<Company>>> GetCompanies()
+        public async Task<ActionResult<IEnumerable<CompanyReadDto>>> GetCompanies()
         {
+            _logger.LogInformation("Fetching all companies");
+
             var companies = await _companyService.GetAllCompaniesAsync();
+
+            if (companies == null || !companies.Any())
+            {
+                _logger.LogWarning("No companies found");
+                return NotFound("No companies available.");
+            }
+
             return Ok(companies);
         }
     }

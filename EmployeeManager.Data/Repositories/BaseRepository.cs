@@ -2,7 +2,6 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 
-
 namespace EmployeeManager.Data.Repositories
 {
     public abstract class BaseRepository

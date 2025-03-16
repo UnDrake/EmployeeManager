@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Models.csproj",
-      "projectName": "EmployeeManager.Models",
-      "projectPath": "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Models.csproj",
+      "projectUniqueName": "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Shared.csproj",
+      "projectName": "EmployeeManager.Shared",
+      "projectPath": "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Shared.csproj",
       "packagesPath": "D:\\Program Files (x86)\\Nuget",
       "outputPath": "D:\\MVCProject\\EmployeeManager\\Models\\obj\\",
       "projectStyle": "PackageReference",

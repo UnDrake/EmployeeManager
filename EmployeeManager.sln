@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Desktop", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.API", "EmployeeManager.API\EmployeeManager.API.csproj", "{C7C2F117-729C-4716-A1FD-7C69E61696E7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Models", "Models\EmployeeManager.Models.csproj", "{1E81812A-727B-499A-9405-3A4BDB679D21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Shared", "Models\EmployeeManager.Shared.csproj", "{1E81812A-727B-499A-9405-3A4BDB679D21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

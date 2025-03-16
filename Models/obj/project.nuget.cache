@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Xlei+Qw3A5viB8ouRekd38WB2UPgQqiX8qJbZDPUDzKE8gm3ebx8Z024J3xRXwSJ3FIZY9IjuGrvs4YLR31qXg==",
+  "dgSpecHash": "8r9GinELVd/2asM4qOrf1l3QLQC0rSnm5usRYWKjMpL83nNZ5+OTtyRuQMa/YcFMATjcyq60B5CcybXFBAnRXA==",
   "success": true,
-  "projectFilePath": "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Models.csproj",
+  "projectFilePath": "D:\\MVCProject\\EmployeeManager\\Models\\EmployeeManager.Shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

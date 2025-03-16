@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\EmployeeManager.Models.csproj" />
+    <ProjectReference Include="..\Models\EmployeeManager.Shared.csproj" />
   </ItemGroup>
 
 </Project>

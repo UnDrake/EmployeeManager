@@ -1,8 +1,6 @@
 D:\MVCProject\EmployeeManager\EmployeeManager.Data\bin\Debug\net8.0\EmployeeManager.Infrastructure.deps.json
 D:\MVCProject\EmployeeManager\EmployeeManager.Data\bin\Debug\net8.0\EmployeeManager.Infrastructure.dll
 D:\MVCProject\EmployeeManager\EmployeeManager.Data\bin\Debug\net8.0\EmployeeManager.Infrastructure.pdb
-D:\MVCProject\EmployeeManager\EmployeeManager.Data\bin\Debug\net8.0\EmployeeManager.Models.dll
-D:\MVCProject\EmployeeManager\EmployeeManager.Data\bin\Debug\net8.0\EmployeeManager.Models.pdb
 D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\EmployeeManager.Infrastructure.csproj.AssemblyReference.cache
 D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\EmployeeManager.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\EmployeeManager.Infrastructure.AssemblyInfoInputs.cache
@@ -13,3 +11,5 @@ D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\EmployeeMana
 D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\refint\EmployeeManager.Infrastructure.dll
 D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\EmployeeManager.Infrastructure.pdb
 D:\MVCProject\EmployeeManager\EmployeeManager.Data\obj\Debug\net8.0\ref\EmployeeManager.Infrastructure.dll
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\bin\Debug\net8.0\EmployeeManager.Shared.dll
+D:\MVCProject\EmployeeManager\EmployeeManager.Data\bin\Debug\net8.0\EmployeeManager.Shared.pdb

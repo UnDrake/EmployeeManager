@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using EmployeeManager.Infrastructure;
 
-
 namespace EmployeeManager.Data.Repositories
 {
     public class DepartmentRepository : BaseRepository

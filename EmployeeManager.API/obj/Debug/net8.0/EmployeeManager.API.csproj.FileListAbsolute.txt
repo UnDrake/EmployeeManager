@@ -70,8 +70,10 @@ D:\MVCProject\EmployeeManager\EmployeeManager.API\obj\Debug\net8.0\refint\Employ
 D:\MVCProject\EmployeeManager\EmployeeManager.API\obj\Debug\net8.0\EmployeeManager.API.pdb
 D:\MVCProject\EmployeeManager\EmployeeManager.API\obj\Debug\net8.0\EmployeeManager.API.genruntimeconfig.cache
 D:\MVCProject\EmployeeManager\EmployeeManager.API\obj\Debug\net8.0\ref\EmployeeManager.API.dll
-D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Models.dll
-D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Models.pdb
 D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Infrastructure.dll
 D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Infrastructure.pdb
 D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Shared.dll
+D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Shared.pdb
+D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Core.dll
+D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Core.pdb

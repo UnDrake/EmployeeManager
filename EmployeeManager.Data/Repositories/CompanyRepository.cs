@@ -1,8 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
-using EmployeeManager.Models;
 using EmployeeManager.Infrastructure;
-
+using EmployeeManager.Shared.Models;
 
 namespace EmployeeManager.Data.Repositories
 {
@@ -14,7 +13,7 @@ namespace EmployeeManager.Data.Repositories
         public async Task<IEnumerable<Company>> GetAllAsync()
         {
             string query = "SELECT ID, Name, Info FROM Companies";
-            return await ExecuteReaderAsync(query, new SqlParameter[] { }, reader => new Company
+            return await ExecuteReaderAsync(query, Array.Empty<SqlParameter>(), reader => new Company
             {
                 ID = reader.GetInt32(0),
                 Name = reader.GetString(1),

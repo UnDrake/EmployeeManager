@@ -1,8 +1,6 @@
-﻿using EmployeeManager.API.DTOs;
-using EmployeeManager.API.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using EmployeeManager.Models;
-using EmployeeManager.API.Services;
+﻿using Microsoft.AspNetCore.Mvc;
+using EmployeeManager.Shared.DTOs.Employee;
+using EmployeeManager.Core.Interfaces;
 
 namespace EmployeeManager.API.Controllers
 {
@@ -10,19 +8,24 @@ namespace EmployeeManager.API.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private readonly EmployeeService _employeeService;
+        private readonly IEmployeeService _employeeService;
 
-        public EmployeesController(EmployeeService employeeService)
+        public EmployeesController(IEmployeeService employeeService)
         {
             _employeeService = employeeService;
         }
 
-        /*[HttpGet]
-        public async Task<ActionResult<List<EmployeeReadDto>>> GetEmployees()
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployeeReadDto>>> GetEmployees([FromQuery] string? company = null)
         {
-            var employees = _employeeService.GetAllEmployees();
+            if (company == null)
+            {
+                return BadRequest(new { message = "Company name is required." });
+            }
+
+            var employees = await _employeeService.GetEmployeesByCompanyAsync(company);
             return Ok(employees);
-        }*/
+        }
 
         [HttpPost]
         public async Task<IActionResult> AddEmployee([FromBody] EmployeeCreateDto employeeDto)
@@ -32,38 +35,38 @@ namespace EmployeeManager.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _employeeService.AddEmployee(employeeDto);
-            return Ok(new { message = "Сотрудник добавлен успешно" });
+            var employeeId = await _employeeService.AddEmployeeAsync(employeeDto);
+            return CreatedAtAction(nameof(GetEmployees), new { company = employeeDto.Company },
+                new { message = "Employee added successfully.", employeeId });
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateEmployee([FromBody] Employee employee)
+        public async Task<IActionResult> UpdateEmployee([FromBody] EmployeeUpdateDto employeeDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            await _employeeService.UpdateEmployee(employee);
-            return Ok(new { message = "Данные сотрудника обновлены" });
+            var updated = await _employeeService.UpdateEmployeeAsync(employeeDto);
+            if (!updated)
+            {
+                return NotFound(new { message = "Employee not found." });
+            }
+
+            return Ok(new { message = "Employee updated successfully." });
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEmployee(int id)
         {
-            await _employeeService.DeleteEmployee(id);
-            return Ok(new { message = "Сотрудник удалён" });
+            var deleted = await _employeeService.DeleteEmployeeAsync(id);
+            if (!deleted)
+            {
+                return NotFound(new { message = "Employee not found." });
+            }
+
+            return Ok(new { message = "Employee deleted successfully." });
         }
-
-        [HttpGet]
-        public async Task<ActionResult<List<Employee>>> GetEmployees([FromQuery] string? company = null)
-        {
-            var employees = company == null
-                ? await _employeeService.GetAllEmployees()
-                : await _employeeService.GetEmployeesByCompany(company);
-
-            return Ok(employees);
-        }
-
     }
 }
