@@ -59,8 +59,8 @@ namespace EmployeeManager.API.Controllers
         public async Task<ActionResult<List<Employee>>> GetEmployees([FromQuery] string? company = null)
         {
             var employees = company == null
-                ? _employeeService.GetAllEmployees()
-                : _employeeService.GetEmployeesByCompany(company);
+                ? await _employeeService.GetAllEmployees()
+                : await _employeeService.GetEmployeesByCompany(company);
 
             return Ok(employees);
         }

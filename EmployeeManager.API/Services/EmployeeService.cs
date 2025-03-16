@@ -1,11 +1,7 @@
 ﻿using EmployeeManager.API.DTOs;
 using EmployeeManager.API.Interfaces;
-using EmployeeManager.Data.Interfaces;
 using EmployeeManager.Data.Repositories;
 using EmployeeManager.Models;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EmployeeManager.API.Services
 {
@@ -19,9 +15,10 @@ namespace EmployeeManager.API.Services
         }
 
         // ✅ Получение всех сотрудников и конвертация в DTO
-        public List<EmployeeReadDto> GetAllEmployees()
+        public async Task<List<EmployeeReadDto>> GetAllEmployees()
         {
-            return _employeeRepository.GetAll()
+            var employees = await _employeeRepository.GetAllAsync();
+            return employees
                 .Select(e => new EmployeeReadDto
                 {
                     ID = e.ID,
@@ -54,27 +51,38 @@ namespace EmployeeManager.API.Services
                 Company = employeeDto.Company
             };
 
-            await _employeeRepository.Create(employee);
+            await _employeeRepository.CreateAsync(employee);
         }
 
         // ✅ Обновление сотрудника
         public async Task UpdateEmployee(Employee employee)
         {
-            await _employeeRepository.Update(employee);
+            await _employeeRepository.UpdateAsync(employee);
         }
 
         // ✅ Удаление сотрудника
         public async Task DeleteEmployee(int id)
         {
-            var employee = new Employee { ID = id };
-            await _employeeRepository.Delete(employee);
+            await _employeeRepository.DeleteAsync(id);
         }
 
-        public List<EmployeeReadDto> GetEmployeesByCompany(string companyName)
+        // ✅ Получение сотрудников по компании
+        public async Task<List<EmployeeReadDto>> GetEmployeesByCompany(string companyName)
         {
-            var employees = _employeeRepository.GetEmployeesByCompany(companyName);
-            return employees.Select(e => new EmployeeReadDto(e)).ToList();
+            var employees = await _employeeRepository.GetEmployeesByCompanyAsync(companyName);
+            return employees.Select(e => new EmployeeReadDto
+            {
+                ID = e.ID,
+                FullName = e.FullName,
+                Phone = e.Phone,
+                BirthDate = e.BirthDate,
+                HireDate = e.HireDate,
+                Salary = e.Salary,
+                Position = e.Position,
+                Department = e.Department,
+                Address = e.Address,
+                Company = e.Company
+            }).ToList();
         }
-
     }
 }

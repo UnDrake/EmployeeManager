@@ -1,8 +1,5 @@
-﻿using EmployeeManager.Data.Interfaces;
-using EmployeeManager.Data.Repositories;
+﻿using EmployeeManager.Data.Repositories;
 using EmployeeManager.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace EmployeeManager.API.Services
 {
@@ -18,7 +15,7 @@ namespace EmployeeManager.API.Services
         // ✅ Получение всех компаний
         public async Task<IEnumerable<Company>> GetAllCompaniesAsync()
         {
-            return await Task.Run(() => _companyRepository.GetAll());
+            return await Task.Run(() => _companyRepository.GetAllAsync());
         }
     }
 }

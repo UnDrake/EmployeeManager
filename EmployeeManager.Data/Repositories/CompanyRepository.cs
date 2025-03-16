@@ -1,46 +1,45 @@
-﻿using EmployeeManager.Data.Database;
-using EmployeeManager.Data.Interfaces;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Logging;
 using EmployeeManager.Models;
-using Microsoft.Data.SqlClient;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using EmployeeManager.Infrastructure;
+
 
 namespace EmployeeManager.Data.Repositories
 {
-    public class CompanyRepository 
+    public class CompanyRepository : BaseRepository
     {
-        private readonly DatabaseHelper _dbHelper;
+        public CompanyRepository(DatabaseConnection database, ILogger<CompanyRepository> logger) 
+            : base(database, logger) { }
 
-        public CompanyRepository(DatabaseHelper dbHelper)
+        public async Task<IEnumerable<Company>> GetAllAsync()
         {
-            _dbHelper = dbHelper;
+            string query = "SELECT ID, Name, Info FROM Companies";
+            return await ExecuteReaderAsync(query, new SqlParameter[] { }, reader => new Company
+            {
+                ID = reader.GetInt32(0),
+                Name = reader.GetString(1),
+                Info = reader.IsDBNull(2) ? string.Empty : reader.GetString(2)
+            });
         }
 
-        // ✅ Получение всех компаний
-        public IEnumerable<Company> GetAll()
+        public async Task<int> GetOrCreateCompanyAsync(string companyName)
         {
-            var companies = new List<Company>();
+            if (string.IsNullOrWhiteSpace(companyName))
+                throw new ArgumentException("Company name cannot be null or empty", nameof(companyName));
 
-            using (var conn = _dbHelper.GetConnection())
-            {
-                conn.Open();
-                string query = "SELECT ID, Name, Info FROM Companies";
+            string query = "SELECT ID FROM Companies WHERE Name = @CompanyName";
+            SqlParameter[] parameters = { new SqlParameter("@CompanyName", companyName) };
 
-                using (var cmd = new SqlCommand(query, conn))
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        companies.Add(new Company
-                        {
-                            ID = reader.GetInt32(0),
-                            Name = reader.GetString(1),
-                            Info = reader.GetString(2)
-                        });
-                    }
-                }
-            }
-            return companies;
+            int? existingId = await ExecuteScalarAsync<int?>(query, parameters);
+            return existingId ?? await AddCompanyAsync(companyName);
+        }
+
+        private async Task<int> AddCompanyAsync(string companyName)
+        {
+            string query = "INSERT INTO Companies (Name) OUTPUT INSERTED.ID VALUES (@CompanyName)";
+            SqlParameter[] parameters = { new SqlParameter("@CompanyName", companyName) };
+
+            return await ExecuteScalarAsync<int>(query, parameters);
         }
     }
 }

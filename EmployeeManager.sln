@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.Core", "EmployeeManager.Core\EmployeeManager.Core.csproj", "{639176AE-3EE8-4045-A036-61703777BD0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Core", "EmployeeManager.Core\EmployeeManager.Core.csproj", "{639176AE-3EE8-4045-A036-61703777BD0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.Data", "EmployeeManager.Data\EmployeeManager.Data.csproj", "{17B43692-41C6-4AE7-B7B0-217A3C27227B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Infrastructure", "EmployeeManager.Data\EmployeeManager.Infrastructure.csproj", "{17B43692-41C6-4AE7-B7B0-217A3C27227B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.Desktop", "EmployeeManager.Desktop\EmployeeManager.Desktop.csproj", "{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Desktop", "EmployeeManager.Desktop\EmployeeManager.Desktop.csproj", "{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.API", "EmployeeManager.API\EmployeeManager.API.csproj", "{C7C2F117-729C-4716-A1FD-7C69E61696E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.API", "EmployeeManager.API\EmployeeManager.API.csproj", "{C7C2F117-729C-4716-A1FD-7C69E61696E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.Models", "Models\EmployeeManager.Models.csproj", "{1E81812A-727B-499A-9405-3A4BDB679D21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Models", "Models\EmployeeManager.Models.csproj", "{1E81812A-727B-499A-9405-3A4BDB679D21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

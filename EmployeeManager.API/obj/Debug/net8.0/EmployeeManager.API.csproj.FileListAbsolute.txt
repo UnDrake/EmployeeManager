@@ -50,8 +50,6 @@ D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\runtimes\win-
 D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
-D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Data.dll
-D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Data.pdb
 D:\MVCProject\EmployeeManager\EmployeeManager.API\obj\Debug\net8.0\EmployeeManager.API.csproj.AssemblyReference.cache
 D:\MVCProject\EmployeeManager\EmployeeManager.API\obj\Debug\net8.0\EmployeeManager.API.GeneratedMSBuildEditorConfig.editorconfig
 D:\MVCProject\EmployeeManager\EmployeeManager.API\obj\Debug\net8.0\EmployeeManager.API.AssemblyInfoInputs.cache
@@ -74,3 +72,6 @@ D:\MVCProject\EmployeeManager\EmployeeManager.API\obj\Debug\net8.0\EmployeeManag
 D:\MVCProject\EmployeeManager\EmployeeManager.API\obj\Debug\net8.0\ref\EmployeeManager.API.dll
 D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Models.dll
 D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Models.pdb
+D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Infrastructure.dll
+D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\EmployeeManager.Infrastructure.pdb
+D:\MVCProject\EmployeeManager\EmployeeManager.API\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll

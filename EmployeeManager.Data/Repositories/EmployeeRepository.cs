@@ -1,312 +1,152 @@
-﻿using EmployeeManager.Data.Database;
-using EmployeeManager.Data.Interfaces;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Logging;
 using EmployeeManager.Models;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using EmployeeManager.Infrastructure;
+
 
 namespace EmployeeManager.Data.Repositories
 {
-    public class EmployeeRepository
+    public class EmployeeRepository : BaseRepository
     {
-        private readonly DatabaseHelper _dbHelper;
+        private readonly CompanyRepository _companyRepository;
+        private readonly DepartmentRepository _departmentRepository;
+        private readonly PositionRepository _positionRepository;
+        private readonly AddressRepository _addressRepository;
 
-        public EmployeeRepository(DatabaseHelper dbHelper)
+        public EmployeeRepository(DatabaseConnection database,
+                                  CompanyRepository companyRepository,
+                                  DepartmentRepository departmentRepository,
+                                  PositionRepository positionRepository,
+                                  AddressRepository addressRepository,
+                                  ILogger<EmployeeRepository> logger) : base(database, logger)
         {
-            _dbHelper = dbHelper;
+            _companyRepository = companyRepository ?? throw new ArgumentNullException(nameof(companyRepository));
+            _departmentRepository = departmentRepository ?? throw new ArgumentNullException(nameof(departmentRepository));
+            _positionRepository = positionRepository ?? throw new ArgumentNullException(nameof(positionRepository));
+            _addressRepository = addressRepository ?? throw new ArgumentNullException(nameof(addressRepository));
         }
 
-        // ✅ Получение всех сотрудников
-        public IEnumerable<Employee> GetAll()
+        public async Task<IEnumerable<Employee>> GetAllAsync()
         {
-            var employees = new List<Employee>();
+            string query = @"
+                SELECT e.ID, e.FullName, e.Phone, e.BirthDate, e.HireDate, e.Salary,
+                       p.Name AS Position, d.Name AS Department, c.Name AS Company,
+                       a.Address
+                FROM Employees e
+                JOIN Positions p ON e.PositionID = p.ID
+                JOIN Departments d ON p.DepartmentID = d.ID
+                JOIN Companies c ON e.CompanyID = c.ID
+                JOIN Addresses a ON e.AddressID = a.ID";
 
-            using (var conn = _dbHelper.GetConnection())
+            return await ExecuteReaderAsync(query, new SqlParameter[] { }, reader => new Employee
             {
-                conn.Open();
-                string query = @"
-                    SELECT e.ID, e.FullName, e.Phone, e.BirthDate, e.HireDate, e.Salary,
-                           p.Name AS Position, d.Name AS Department, c.Name AS Company,
-                           a.Address
-                    FROM Employees e
-                    JOIN Positions p ON e.PositionID = p.ID
-                    JOIN Departments d ON p.DepartmentID = d.ID
-                    JOIN Companies c ON e.CompanyID = c.ID  -- Привязка через e.CompanyID
-                    JOIN Addresses a ON e.AddressID = a.ID";
-
-                using (var cmd = new SqlCommand(query, conn))
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        employees.Add(new Employee
-                        {
-                            ID = reader.GetInt32(0),
-                            FullName = reader.GetString(1),
-                            Phone = reader.IsDBNull(2) ? null : reader.GetString(2),
-                            BirthDate = reader.IsDBNull(3) ? null : reader.GetDateTime(3),
-                            HireDate = reader.GetDateTime(4),
-                            Salary = reader.GetDecimal(5),
-                            Position = reader.GetString(6),
-                            Department = reader.GetString(7),
-                            Company = reader.GetString(8),
-                            Address = reader.GetString(9)
-                        });
-                    }
-                }
-            }
-            return employees;
+                ID = reader.GetInt32(0),
+                FullName = reader.GetString(1),
+                Phone = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                BirthDate = reader.IsDBNull(3) ? null : reader.GetDateTime(3),
+                HireDate = reader.GetDateTime(4),
+                Salary = reader.GetDecimal(5),
+                Position = reader.GetString(6),
+                Department = reader.GetString(7),
+                Company = reader.GetString(8),
+                Address = reader.GetString(9)
+            });
         }
 
-        // ✅ Добавление сотрудника
-        public async Task Create(Employee entity)
+        public async Task<IEnumerable<Employee>> GetEmployeesByCompanyAsync(string companyName)
         {
-            int companyID = GetOrCreateCompany(entity.Company);
-            int departmentID = GetOrCreateDepartment(entity.Department, companyID);
-            int positionID = GetOrCreatePosition(entity.Position, departmentID);
-            int addressID = GetOrCreateAddress(entity.Address);
+            string query = @"
+                SELECT e.ID, e.FullName, e.Phone, e.BirthDate, e.HireDate, e.Salary,
+                       p.Name AS Position, d.Name AS Department, c.Name AS Company,
+                       a.Address
+                FROM Employees e
+                JOIN Positions p ON e.PositionID = p.ID
+                JOIN Departments d ON p.DepartmentID = d.ID
+                JOIN Companies c ON e.CompanyID = c.ID
+                JOIN Addresses a ON e.AddressID = a.ID
+                WHERE c.Name = @CompanyName";
 
-            using (var conn = _dbHelper.GetConnection())
+            SqlParameter[] parameters = { new SqlParameter("@CompanyName", companyName) };
+
+            return await ExecuteReaderAsync(query, parameters, reader => new Employee
             {
-                await conn.OpenAsync();
-                string query = @"INSERT INTO Employees 
-                                (FullName, Phone, BirthDate, HireDate, Salary, PositionID, AddressID, CompanyID) 
-                                VALUES (@FullName, @Phone, @BirthDate, @HireDate, @Salary, @PositionID, @AddressID, @CompanyID)";
-
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@FullName", entity.FullName);
-                    cmd.Parameters.AddWithValue("@Phone", (object)entity.Phone ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@BirthDate", (object)entity.BirthDate ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@HireDate", entity.HireDate);
-                    cmd.Parameters.AddWithValue("@Salary", entity.Salary);
-                    cmd.Parameters.AddWithValue("@PositionID", positionID);
-                    cmd.Parameters.AddWithValue("@AddressID", addressID);
-                    cmd.Parameters.AddWithValue("@CompanyID", companyID);  // Добавление ID компании
-
-                    await cmd.ExecuteNonQueryAsync();
-                }
-            }
+                ID = reader.GetInt32(0),
+                FullName = reader.GetString(1),
+                Phone = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                BirthDate = reader.IsDBNull(3) ? null : reader.GetDateTime(3),
+                HireDate = reader.GetDateTime(4),
+                Salary = reader.GetDecimal(5),
+                Position = reader.GetString(6),
+                Department = reader.GetString(7),
+                Company = reader.GetString(8),
+                Address = reader.GetString(9)
+            });
         }
 
-        // ✅ Обновление сотрудника
-        public async Task<Employee> Update(Employee entity)
+        public async Task<int> CreateAsync(Employee entity)
         {
-            int companyID = GetOrCreateCompany(entity.Company);
-            int departmentID = GetOrCreateDepartment(entity.Department, companyID);
-            int positionID = GetOrCreatePosition(entity.Position, departmentID);
-            int addressID = GetOrCreateAddress(entity.Address);
+            int companyID = await _companyRepository.GetOrCreateCompanyAsync(entity.Company);
+            int departmentID = await _departmentRepository.GetOrCreateDepartmentAsync(entity.Department, companyID);
+            int positionID = await _positionRepository.GetOrCreatePositionAsync(entity.Position, departmentID);
+            int addressID = await _addressRepository.GetOrCreateAddressAsync(entity.Address);
 
-            using (var conn = _dbHelper.GetConnection())
+            string query = @"
+                INSERT INTO Employees 
+                (FullName, Phone, BirthDate, HireDate, Salary, PositionID, AddressID, CompanyID) 
+                OUTPUT INSERTED.ID
+                VALUES (@FullName, @Phone, @BirthDate, @HireDate, @Salary, @PositionID, @AddressID, @CompanyID)";
+
+            SqlParameter[] parameters =
             {
-                await conn.OpenAsync();
-                string query = @"UPDATE Employees 
-                                 SET FullName = @FullName, Phone = @Phone, BirthDate = @BirthDate, 
-                                     HireDate = @HireDate, Salary = @Salary, 
-                                     PositionID = @PositionID, AddressID = @AddressID, CompanyID = @CompanyID
-                                 WHERE ID = @ID";
+                new SqlParameter("@FullName", entity.FullName),
+                new SqlParameter("@Phone", (object)entity.Phone ?? DBNull.Value),
+                new SqlParameter("@BirthDate", (object ?)entity.BirthDate ?? DBNull.Value),
+                new SqlParameter("@HireDate", entity.HireDate),
+                new SqlParameter("@Salary", entity.Salary),
+                new SqlParameter("@PositionID", positionID),
+                new SqlParameter("@AddressID", addressID),
+                new SqlParameter("@CompanyID", companyID)
+            };
 
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@ID", entity.ID);
-                    cmd.Parameters.AddWithValue("@FullName", entity.FullName);
-                    cmd.Parameters.AddWithValue("@Phone", (object)entity.Phone ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@BirthDate", (object)entity.BirthDate ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@HireDate", entity.HireDate);
-                    cmd.Parameters.AddWithValue("@Salary", entity.Salary);
-                    cmd.Parameters.AddWithValue("@PositionID", positionID);
-                    cmd.Parameters.AddWithValue("@AddressID", addressID);
-                    cmd.Parameters.AddWithValue("@CompanyID", companyID);  // Обновление ID компании
-
-                    await cmd.ExecuteNonQueryAsync();
-                }
-            }
-            return entity;
+            return await ExecuteScalarAsync<int>(query, parameters);
         }
 
-        // ✅ Удаление сотрудника
-        public async Task Delete(Employee entity)
+        public async Task<bool> UpdateAsync(Employee entity)
         {
-            using (var conn = _dbHelper.GetConnection())
-            {
-                await conn.OpenAsync();
-                string query = "DELETE FROM Employees WHERE ID = @ID";
+            int companyID = await _companyRepository.GetOrCreateCompanyAsync(entity.Company);
+            int departmentID = await _departmentRepository.GetOrCreateDepartmentAsync(entity.Department, companyID);
+            int positionID = await _positionRepository.GetOrCreatePositionAsync(entity.Position, departmentID);
+            int addressID = await _addressRepository.GetOrCreateAddressAsync(entity.Address);
 
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@ID", entity.ID);
-                    await cmd.ExecuteNonQueryAsync();
-                }
-            }
+            string query = @"
+                UPDATE Employees 
+                SET FullName = @FullName, Phone = @Phone, BirthDate = @BirthDate, 
+                    HireDate = @HireDate, Salary = @Salary, 
+                    PositionID = @PositionID, AddressID = @AddressID, CompanyID = @CompanyID
+                WHERE ID = @ID";
+
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@ID", entity.ID),
+                new SqlParameter("@FullName", entity.FullName),
+                new SqlParameter("@Phone", (object)entity.Phone ?? DBNull.Value),
+                new SqlParameter("@BirthDate", (object ?)entity.BirthDate ?? DBNull.Value),
+                new SqlParameter("@HireDate", entity.HireDate),
+                new SqlParameter("@Salary", entity.Salary),
+                new SqlParameter("@PositionID", positionID),
+                new SqlParameter("@AddressID", addressID),
+                new SqlParameter("@CompanyID", companyID)
+            };
+
+            return await ExecuteNonQueryAsync(query, parameters) > 0;
         }
 
-        // 🔹 Вспомогательные методы
-
-        private int GetOrCreateCompany(string companyName)
+        public async Task<bool> DeleteAsync(int employeeId)
         {
-            using (var conn = _dbHelper.GetConnection())
-            {
-                conn.Open();
-                string query = "SELECT ID FROM Companies WHERE Name = @CompanyName";
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@CompanyName", companyName);
-                    object result = cmd.ExecuteScalar();
-                    return result != null ? (int)result : AddCompany(companyName);
-                }
-            }
-        }
+            string query = "DELETE FROM Employees WHERE ID = @ID";
+            SqlParameter[] parameters = { new SqlParameter("@ID", employeeId) };
 
-        private int AddCompany(string companyName)
-        {
-            using (var conn = _dbHelper.GetConnection())
-            {
-                conn.Open();
-                string query = "INSERT INTO Companies (Name) OUTPUT INSERTED.ID VALUES (@CompanyName)";
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@CompanyName", companyName);
-                    return (int)cmd.ExecuteScalar();
-                }
-            }
-        }
-
-        private int GetOrCreateDepartment(string departmentName, int companyID)
-        {
-            using (var conn = _dbHelper.GetConnection())
-            {
-                conn.Open();
-                string query = "SELECT ID FROM Departments WHERE Name = @DepartmentName";
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@DepartmentName", departmentName);
-                    cmd.Parameters.AddWithValue("@CompanyID", companyID);
-                    object result = cmd.ExecuteScalar();
-                    return result != null ? (int)result : AddDepartment(departmentName, companyID);
-                }
-            }
-        }
-
-        private int AddDepartment(string departmentName, int companyID)
-        {
-            using (var conn = _dbHelper.GetConnection())
-            {
-                conn.Open();
-                string query = "INSERT INTO Departments (Name, CompanyID) OUTPUT INSERTED.ID VALUES (@DepartmentName, @CompanyID)";
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@DepartmentName", departmentName);
-                    cmd.Parameters.AddWithValue("@CompanyID", companyID);
-                    return (int)cmd.ExecuteScalar();
-                }
-            }
-        }
-
-        private int GetOrCreatePosition(string positionName, int departmentID)
-        {
-            using (var conn = _dbHelper.GetConnection())
-            {
-                conn.Open();
-                string query = "SELECT ID FROM Positions WHERE Name = @PositionName AND DepartmentID = @DepartmentID";
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@PositionName", positionName);
-                    cmd.Parameters.AddWithValue("@DepartmentID", departmentID);
-                    object result = cmd.ExecuteScalar();
-                    return result != null ? (int)result : AddPosition(positionName, departmentID);
-                }
-            }
-        }
-
-        private int AddPosition(string positionName, int departmentID)
-        {
-            using (var conn = _dbHelper.GetConnection())
-            {
-                conn.Open();
-                string query = "INSERT INTO Positions (Name, DepartmentID) OUTPUT INSERTED.ID VALUES (@PositionName, @DepartmentID)";
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@PositionName", positionName);
-                    cmd.Parameters.AddWithValue("@DepartmentID", departmentID);
-                    return (int)cmd.ExecuteScalar();
-                }
-            }
-        }
-
-        private int GetOrCreateAddress(string address)
-        {
-            using (var conn = _dbHelper.GetConnection())
-            {
-                conn.Open();
-                string query = "SELECT ID FROM Addresses WHERE Address = @Address";
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Address", address);
-                    object result = cmd.ExecuteScalar();
-                    return result != null ? (int)result : AddAddress(address);
-                }
-            }
-        }
-
-        private int AddAddress(string address)
-        {
-            using (var conn = _dbHelper.GetConnection())
-            {
-                conn.Open();
-                string query = "INSERT INTO Addresses (Address) OUTPUT INSERTED.ID VALUES (@Address)";
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Address", address);
-                    return (int)cmd.ExecuteScalar();
-                }
-            }
-        }
-
-        public IEnumerable<Employee> GetEmployeesByCompany(string companyName)
-        {
-            var employees = new List<Employee>();
-
-            using (var conn = _dbHelper.GetConnection())
-            {
-                conn.Open();
-                string query = @"
-                    SELECT e.ID, e.FullName, e.Phone, e.BirthDate, e.HireDate, e.Salary,
-                           p.Name AS Position, d.Name AS Department, c.Name AS Company,
-                           a.Address
-                    FROM Employees e
-                    JOIN Positions p ON e.PositionID = p.ID
-                    JOIN Departments d ON p.DepartmentID = d.ID
-                    JOIN Companies c ON e.CompanyID = c.ID  -- Привязка через e.CompanyID
-                    JOIN Addresses a ON e.AddressID = a.ID
-                    WHERE c.Name = @CompanyName";
-
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@CompanyName", companyName);
-
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            employees.Add(new Employee
-                            {
-                                ID = reader.GetInt32(0),
-                                FullName = reader.GetString(1),
-                                Phone = reader.IsDBNull(2) ? null : reader.GetString(2),
-                                BirthDate = reader.IsDBNull(3) ? null : reader.GetDateTime(3),
-                                HireDate = reader.GetDateTime(4),
-                                Salary = reader.GetDecimal(5),
-                                Position = reader.GetString(6),
-                                Department = reader.GetString(7),
-                                Company = reader.GetString(8),
-                                Address = reader.GetString(9)
-                            });
-                        }
-                    }
-                }
-            }
-            return employees;
+            return await ExecuteNonQueryAsync(query, parameters) > 0;
         }
     }
 }
