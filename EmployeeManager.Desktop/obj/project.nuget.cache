@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TsJuQKdcd+GaIv7WVTFgeRK/MSX15gJ3WKKXX6pFZEJOTc73P/HtVLO3AjfNOc3K0CrCuwV91vedLvQCkenfTw==",
+  "dgSpecHash": "lelNmVEDNa85VSw/G4gLUN9E8jkeBBX35SPLcRs+trTtcDSnGZQTIDXMhIpQtrisc2V9BKv/QwYAphVKwlrxpA==",
   "success": true,
   "projectFilePath": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "D:\\Program Files (x86)\\Nuget\\avalonia.themes.simple\\11.2.1\\avalonia.themes.simple.11.2.1.nupkg.sha512",
     "D:\\Program Files (x86)\\Nuget\\avalonia.win32\\11.2.1\\avalonia.win32.11.2.1.nupkg.sha512",
     "D:\\Program Files (x86)\\Nuget\\avalonia.x11\\11.2.1\\avalonia.x11.11.2.1.nupkg.sha512",
+    "D:\\Program Files (x86)\\Nuget\\consoletables\\2.6.2\\consoletables.2.6.2.nupkg.sha512",
     "D:\\Program Files (x86)\\Nuget\\dynamicdata\\9.0.4\\dynamicdata.9.0.4.nupkg.sha512",
     "D:\\Program Files (x86)\\Nuget\\harfbuzzsharp\\7.3.0.2\\harfbuzzsharp.7.3.0.2.nupkg.sha512",
     "D:\\Program Files (x86)\\Nuget\\harfbuzzsharp.nativeassets.linux\\7.3.0.2\\harfbuzzsharp.nativeassets.linux.7.3.0.2.nupkg.sha512",
@@ -70,7 +71,8 @@
     "D:\\Program Files (x86)\\Nuget\\system.reactive\\6.0.1\\system.reactive.6.0.1.nupkg.sha512",
     "D:\\Program Files (x86)\\Nuget\\system.text.encodings.web\\9.0.3\\system.text.encodings.web.9.0.3.nupkg.sha512",
     "D:\\Program Files (x86)\\Nuget\\system.text.json\\9.0.3\\system.text.json.9.0.3.nupkg.sha512",
-    "D:\\Program Files (x86)\\Nuget\\tmds.dbus.protocol\\0.20.0\\tmds.dbus.protocol.0.20.0.nupkg.sha512"
+    "D:\\Program Files (x86)\\Nuget\\tmds.dbus.protocol\\0.20.0\\tmds.dbus.protocol.0.20.0.nupkg.sha512",
+    "D:\\Program Files (x86)\\Nuget\\wcwidth\\1.0.0\\wcwidth.1.0.0.nupkg.sha512"
   ],
   "logs": []
 }

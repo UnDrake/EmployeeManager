@@ -10,7 +10,7 @@
 
 	<StackPanel Background="#5e3a8c" Margin="20">
 
-		<TextBlock Text="{Binding CompanyName}"
+		<TextBlock Text="{Binding CompanyName} Company Employee List"
                    FontSize="20"
                    HorizontalAlignment="Center"
                    Foreground="White"
@@ -46,32 +46,12 @@
                       Foreground="Black"
                       BorderBrush="White"
                       BorderThickness="1"/>
-
-			<TextBox Text="{Binding MinSalaryText, Mode=TwoWay}"
-                     Watermark="Min. Salary"
-                     Width="180"
-                     Height="40"
-                     Background="#7f58a2"
-                     Foreground="Black"
-                     BorderBrush="White"
-                     BorderThickness="1"
-                     Padding="10"/>
 		</StackPanel>
 
 		<StackPanel Orientation="Horizontal" Margin="10" Spacing="10">
-			<TextBox Text="{Binding MaxSalaryText, Mode=TwoWay}"
-                     Watermark="Max. Salary"
-                     Width="180"
-                     Height="40"
-                     Background="#7f58a2"
-                     Foreground="Black"
-                     BorderBrush="White"
-                     BorderThickness="1"
-                     Padding="10"/>
-
 			<TextBox Text="{Binding SearchPhone, Mode=TwoWay}"
 					 Watermark="Search by phone"
-					 Width="250"
+					 Width="220"
 					 Height="40"
 					 Background="#7f58a2"
 					 Foreground="Black"
@@ -88,6 +68,15 @@
 					 BorderBrush="White"
 					 BorderThickness="1"
 					 Padding="10"/>
+			<Button Content="Reset Filters"
+					 Command="{Binding ResetFiltersCommand}"
+					 Width="140"
+					 Height="40"
+					 Background="#9b7ce0"
+					 Foreground="White"
+					 BorderBrush="White"
+					 BorderThickness="1"
+					 Padding="10"/>
 		</StackPanel>
 
 		<ScrollViewer HorizontalScrollBarVisibility="Auto"
@@ -97,7 +86,7 @@
                       Margin="10">
 
 			<StackPanel Background="#5e3a8c">
-				<Grid ColumnDefinitions="200,150,140,140,200,180,120,250"
+				<Grid ColumnDefinitions="200,150,140,140,200,180,250"
                       Background="#7f58a2">
 
 					<Border BorderBrush="White" BorderThickness="1" Grid.Column="0">
@@ -117,9 +106,6 @@
 					</Border>
 					<Border BorderBrush="White" BorderThickness="1" Grid.Column="5">
 						<TextBlock Text="Department" FontWeight="Bold" TextAlignment="Center" Padding="5" Foreground="White"/>
-					</Border>
-					<Border BorderBrush="White" BorderThickness="1" Grid.Column="6">
-						<TextBlock Text="Salary" FontWeight="Bold" TextAlignment="Center" Padding="5" Foreground="White"/>
 					</Border>
 					<Border BorderBrush="White" BorderThickness="1" Grid.Column="7">
 						<TextBlock Text="Address" FontWeight="Bold" TextAlignment="Center" Padding="5" Foreground="White"/>
@@ -146,7 +132,7 @@
 
 					<ListBox.ItemTemplate>
 						<DataTemplate>
-							<Grid ColumnDefinitions="200,150,140,140,200,180,120,250">
+							<Grid ColumnDefinitions="200,150,140,140,200,180,250">
 								<Border BorderBrush="White" BorderThickness="1" Grid.Column="0">
 									<TextBlock Text="{Binding FullName}" TextAlignment="Center" Padding="5" Foreground="White"/>
 								</Border>
@@ -165,9 +151,6 @@
 								<Border BorderBrush="White" BorderThickness="1" Grid.Column="5">
 									<TextBlock Text="{Binding Department}" TextAlignment="Center" Padding="5" Foreground="White"/>
 								</Border>
-								<Border BorderBrush="White" BorderThickness="1" Grid.Column="6">
-									<TextBlock Text="{Binding Salary}" TextAlignment="Center" Padding="5" Foreground="White"/>
-								</Border>
 								<Border BorderBrush="White" BorderThickness="1" Grid.Column="7">
 									<TextBlock Text="{Binding Address}" TextAlignment="Center" Padding="5" Foreground="White"/>
 								</Border>
@@ -179,6 +162,17 @@
 		</ScrollViewer>
 
 		<StackPanel Orientation="Horizontal" Margin="10" Spacing="10">
+			<Button Content="Back"
+					Command="{Binding BackToCompanySelectionCommand }"
+					Width="100"
+					Height="40"
+					Background="#9b7ce0"
+					Foreground="White"
+					BorderBrush="White"
+					BorderThickness="1"
+					Padding="10"
+					HorizontalContentAlignment="Center"/>
+			
 			<Button Content="Add"
                     Command="{Binding AddEmployeeCommand}"
                     Width="120"
@@ -187,47 +181,54 @@
                     Foreground="White"
                     BorderBrush="White"
                     BorderThickness="1"
-                    Padding="10"/>
+                    Padding="10"
+					HorizontalContentAlignment="Center"/>
 
 			<Button Content="Edit"
                     Command="{Binding UpdateEmployeeCommand}"
                     Width="120"
                     Height="40"
+					IsEnabled="{Binding IsEmployeeSelected}"
                     Background="#9b7ce0"
                     Foreground="White"
                     BorderBrush="White"
                     BorderThickness="1"
-                    Padding="10"/>
+                    Padding="10"
+					HorizontalContentAlignment="Center"/>
 
 			<Button Content="Delete"
                     Command="{Binding DeleteEmployeeCommand}"
                     Width="120"
                     Height="40"
+					IsEnabled="{Binding IsEmployeeSelected}"
                     Background="#9b7ce0"
                     Foreground="White"
                     BorderBrush="White"
                     BorderThickness="1"
-                    Padding="10"/>
+                    Padding="10"
+					HorizontalContentAlignment="Center"/>
 
-			<Button Content="Reset Filters"
-					Command="{Binding ResetFiltersCommand}"
-					Width="120"
+			<Button Content="Open Payroll Page"
+					Command="{Binding OpenPayrollEmployeeListCommand}"
+					Width="150"
 					Height="40"
 					Background="#9b7ce0"
 					Foreground="White"
 					BorderBrush="White"
 					BorderThickness="1"
-					Padding="10"/>
+					Padding="10"
+					HorizontalContentAlignment="Center"/>
 
-			<Button Content="Generate Report"
-                    Command="{Binding OpenSalaryReportWindowCommand}"
-                    Width="160"
-                    Height="40"
-                    Background="#9b7ce0"
-                    Foreground="White"
-                    BorderBrush="White"
-                    BorderThickness="1"
-                    Padding="10"/>
+			<Button Content="Save Table"
+					Command="{Binding SaveReportCommand}"
+					Width="150"
+					Height="40"
+					Background="#9b7ce0"
+					Foreground="White"
+					BorderBrush="White"
+					BorderThickness="1"
+					Padding="10"
+					HorizontalContentAlignment="Center"/>
 		</StackPanel>
 
 	</StackPanel>

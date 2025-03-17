@@ -37,5 +37,11 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [D:/MVCProject/EmployeeManager/EmployeeManager.Desktop/Views/EmployeeListView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[D:/MVCProject/EmployeeManager/EmployeeManager.Desktop/Views/SalaryReportWindow.axaml]
+[D:/MVCProject/EmployeeManager/EmployeeManager.Desktop/Views/PayrollEmployeeListView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/MVCProject/EmployeeManager/EmployeeManager.Desktop/Views/ReportSavedWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/MVCProject/EmployeeManager/EmployeeManager.Desktop/Views/TotalSalaryReportWindowByFilter.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

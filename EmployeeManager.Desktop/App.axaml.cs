@@ -18,8 +18,8 @@ namespace EmployeeManager.Desktop
 
         public override void OnFrameworkInitializationCompleted()
         {
-            var host = Program.BuildHost(); // Получаем сконфигурированный `Host`
-            Services = host.Services; // Присваиваем `Services`, чтобы использовать в DI
+            var host = Program.BuildHost();
+            Services = host.Services;
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {

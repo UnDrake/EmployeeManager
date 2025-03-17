@@ -29,7 +29,7 @@ namespace EmployeeManager.Desktop.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    _logger.LogError("Ошибка при получении сотрудников для компании {Company}. Код: {StatusCode}", companyName, response.StatusCode);
+                    _logger.LogError("Error getting employees for company {Company}. Code: {StatusCode}", companyName, response.StatusCode);
                     return new List<EmployeeReadDto>();
                 }
 
@@ -37,7 +37,7 @@ namespace EmployeeManager.Desktop.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Ошибка при запросе сотрудников по компании.");
+                _logger.LogError(ex, "Error while querying employees by company");
                 return new List<EmployeeReadDto>();
             }
         }
@@ -50,7 +50,7 @@ namespace EmployeeManager.Desktop.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    _logger.LogError("Ошибка при добавлении сотрудника. Код: {StatusCode}", response.StatusCode);
+                    _logger.LogError("Error adding employee. Code: {StatusCode}", response.StatusCode);
                     return 0;
                 }
 
@@ -59,7 +59,7 @@ namespace EmployeeManager.Desktop.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Ошибка при добавлении сотрудника.");
+                _logger.LogError(ex, "Error adding employee");
                 return 0;
             }
         }
@@ -73,7 +73,7 @@ namespace EmployeeManager.Desktop.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Ошибка при обновлении сотрудника.");
+                _logger.LogError(ex, "Error updating employee");
                 return false;
             }
         }
@@ -87,7 +87,7 @@ namespace EmployeeManager.Desktop.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Ошибка при удалении сотрудника.");
+                _logger.LogError(ex, "Error deleting employee.");
                 return false;
             }
         }

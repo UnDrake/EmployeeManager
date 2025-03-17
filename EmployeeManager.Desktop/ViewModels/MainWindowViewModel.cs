@@ -17,13 +17,11 @@ namespace EmployeeManager.Desktop.ViewModels
 
         public MainWindowViewModel()
         {
-            // Изначально CurrentView можно оставить пустым или задать null, чтобы не жестко задавать CompanySelectionView
             CurrentView = null;
         }
 
         public void Initialize()
         {
-            // Устанавливаем начальное представление только при необходимости
             if (CurrentView == null)
             {
                 CurrentView = new CompanySelectionView();

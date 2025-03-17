@@ -1,5 +1,6 @@
 ﻿using EmployeeManager.Shared.DTOs.Employee;
 using EmployeeManager.Shared.Models;
+using EmployeeManager.Shared.ModelsToSave;
 
 namespace EmployeeManager.Desktop.Utils
 {
@@ -44,6 +45,28 @@ namespace EmployeeManager.Desktop.Utils
             Department = dto.Department,
             Address = dto.Address,
             Company = dto.Company
+        };
+
+        public static EmployeeListElement FromEmployeeToEmployeeListElement(Employee employee) => new EmployeeListElement
+        {
+            FullName = employee.FullName,
+            Phone = employee.Phone,
+            BirthDate = employee.BirthDate,
+            HireDate= employee.HireDate,
+            Department = employee.Department,
+            Address = employee.Address,
+            Company = employee.Company,
+            Position = employee.Position
+        };
+
+        public static EmployeePayrollElement FromEmployeeToEmployeePayrollElement(Employee employee) => new EmployeePayrollElement
+        {
+            FullName = employee.FullName,
+            HireDate = employee.HireDate,
+            Department = employee.Department,
+            Salary = employee.Salary,
+            Company = employee.Company,
+            Position = employee.Position
         };
     }
 }

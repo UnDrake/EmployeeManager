@@ -2,6 +2,7 @@
 using Avalonia;
 using Avalonia.ReactiveUI;
 using EmployeeManager.Desktop.Services;
+using EmployeeManager.Desktop.Utils;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -37,6 +38,8 @@ namespace EmployeeManager.Desktop
                     {
                         client.BaseAddress = new Uri("https://localhost:7240/api/");
                     });
+
+                    services.AddSingleton<ReportSaver>();
                 })
                 .ConfigureLogging(logging =>
                 {

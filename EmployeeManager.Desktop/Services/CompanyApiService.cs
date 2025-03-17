@@ -28,7 +28,7 @@ namespace EmployeeManager.Desktop.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    _logger.LogError("Ошибка при получении списка компаний. Код: {StatusCode}", response.StatusCode);
+                    _logger.LogError("Error getting list of companies. Code: {StatusCode}", response.StatusCode);
                     return new List<CompanyReadDto>();
                 }
 
@@ -36,7 +36,7 @@ namespace EmployeeManager.Desktop.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Ошибка при запросе компаний.");
+                _logger.LogError(ex, "Error while querying companies.");
                 return new List<CompanyReadDto>();
             }
         }

@@ -73,6 +73,10 @@
               "target": "Package",
               "version": "[11.2.1, )"
             },
+            "ConsoleTables": {
+              "target": "Package",
+              "version": "[2.6.2, )"
+            },
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
               "version": "[9.0.3, )"

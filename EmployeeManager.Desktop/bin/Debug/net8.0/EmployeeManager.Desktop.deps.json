@@ -14,6 +14,7 @@
           "Avalonia.Fonts.Inter": "11.2.1",
           "Avalonia.ReactiveUI": "11.2.1",
           "Avalonia.Themes.Fluent": "11.2.1",
+          "ConsoleTables": "2.6.2",
           "EmployeeManager.Shared": "1.0.0",
           "Microsoft.Extensions.Hosting": "9.0.3",
           "Microsoft.Extensions.Http": "9.0.3",
@@ -273,6 +274,17 @@
           "lib/net8.0/Avalonia.X11.dll": {
             "assemblyVersion": "11.2.1.0",
             "fileVersion": "11.2.1.0"
+          }
+        }
+      },
+      "ConsoleTables/2.6.2": {
+        "dependencies": {
+          "Wcwidth": "1.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/ConsoleTables.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.6.2.0"
           }
         }
       },
@@ -918,6 +930,14 @@
           }
         }
       },
+      "Wcwidth/1.0.0": {
+        "runtime": {
+          "lib/net6.0/Wcwidth.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "EmployeeManager.Shared/1.0.0": {
         "runtime": {
           "EmployeeManager.Shared.dll": {}
@@ -1049,6 +1069,13 @@
       "sha512": "sha512-h2aCpyLmxGkldPK7cbncEgyobrJ5En7gQtrwVARLmN32Rw6dHut3jyF3P8at2DmWxRuKwZVXgWBSSI62hINgrQ==",
       "path": "avalonia.x11/11.2.1",
       "hashPath": "avalonia.x11.11.2.1.nupkg.sha512"
+    },
+    "ConsoleTables/2.6.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/bH4u0Lni2FPUtGvg1oAKpsEzmhhBlqj0DD67kvV/4qELaEBXDbVo9w3lHFQFe00vLEAZi+5Rr8Nai0D2z7+bg==",
+      "path": "consoletables/2.6.2",
+      "hashPath": "consoletables.2.6.2.nupkg.sha512"
     },
     "DynamicData/9.0.4": {
       "type": "package",
@@ -1399,6 +1426,13 @@
       "sha512": "sha512-2gkt2kuYPhDKd8gtl34jZSJOnn4nRJfFngCDcTZT/uySbK++ua0YQx2418l9Rn1Y4dE5XNq6zG9ZsE5ltLlNNw==",
       "path": "tmds.dbus.protocol/0.20.0",
       "hashPath": "tmds.dbus.protocol.0.20.0.nupkg.sha512"
+    },
+    "Wcwidth/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aekut5BeF4c1Jr2qab3aXcttcgPEfPb2ok2L8911EIzn3RnDBYnUWgx/1OVlqrSXCdwAkBpNgYWXb6b5t4cBng==",
+      "path": "wcwidth/1.0.0",
+      "hashPath": "wcwidth.1.0.0.nupkg.sha512"
     },
     "EmployeeManager.Shared/1.0.0": {
       "type": "project",

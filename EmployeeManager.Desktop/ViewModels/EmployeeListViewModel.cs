@@ -13,14 +13,17 @@ using System.Windows.Input;
 using System;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
+using EmployeeManager.Shared.ModelsToSave;
 
 namespace EmployeeManager.Desktop.ViewModels
 {
     public class EmployeeListViewModel : ReactiveObject
     {
         private readonly EmployeeApiService _employeeApiService;
-        private List<Employee> _allEmployees = new();
-        private string _companyName = string.Empty;
+        protected List<Employee> _allEmployees = new();
+        protected string _companyName = string.Empty;
+        protected readonly ReportSaver _reportSaver;
+
         public string CompanyName
         {
             get => _companyName;
@@ -35,8 +38,15 @@ namespace EmployeeManager.Desktop.ViewModels
         public Employee? SelectedEmployee
         {
             get => _selectedEmployee;
-            set => this.RaiseAndSetIfChanged(ref _selectedEmployee, value);
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _selectedEmployee, value);
+                this.RaisePropertyChanged(nameof(IsEmployeeSelected));
+            }
         }
+
+        public bool IsEmployeeSelected => SelectedEmployee != null;
+
 
         private string _searchName = string.Empty;
         public string SearchName
@@ -71,44 +81,6 @@ namespace EmployeeManager.Desktop.ViewModels
             }
         }
 
-        private string _minSalaryText = string.Empty;
-        public string MinSalaryText
-        {
-            get => _minSalaryText;
-            set
-            {
-                this.RaiseAndSetIfChanged(ref _minSalaryText, value);
-                MinSalary = decimal.TryParse(value, out var result) ? result : null;
-                ApplyFilters();
-            }
-        }
-
-        private string _maxSalaryText = string.Empty;
-        public string MaxSalaryText
-        {
-            get => _maxSalaryText;
-            set
-            {
-                this.RaiseAndSetIfChanged(ref _maxSalaryText, value);
-                MaxSalary = decimal.TryParse(value, out var result) ? result : null;
-                ApplyFilters();
-            }
-        }
-
-        private decimal? _minSalary;
-        public decimal? MinSalary
-        {
-            get => _minSalary;
-            private set => this.RaiseAndSetIfChanged(ref _minSalary, value);
-        }
-
-        private decimal? _maxSalary;
-        public decimal? MaxSalary
-        {
-            get => _maxSalary;
-            private set => this.RaiseAndSetIfChanged(ref _maxSalary, value);
-        }
-
         private string _searchPhone = string.Empty;
         public string SearchPhone
         {
@@ -137,16 +109,9 @@ namespace EmployeeManager.Desktop.ViewModels
         public ICommand DeleteEmployeeCommand { get; }
         public ICommand RefreshCommand { get; }
         public ICommand ResetFiltersCommand { get; }
-        public ICommand OpenSalaryReportWindowCommand { get; }
-
-        private void OpenSalaryReportWindow()
-        {
-            var salaryReportWindow = new SalaryReportWindow
-            {
-                DataContext = new SalaryReportViewModel(Employees)
-            };
-            salaryReportWindow.Show();
-        }
+        public ICommand OpenPayrollEmployeeListCommand { get; }
+        public ICommand BackToCompanySelectionCommand { get; }
+        public ICommand SaveReportCommand { get; }
 
         public EmployeeListViewModel() : this("") { }
 
@@ -154,19 +119,22 @@ namespace EmployeeManager.Desktop.ViewModels
         {
             _companyName = companyName;
             _employeeApiService = App.Services.GetRequiredService<EmployeeApiService>();
+            _reportSaver = App.Services.GetRequiredService<ReportSaver>();
 
             ApplyFiltersCommand = ReactiveCommand.Create(ApplyFilters);
             AddEmployeeCommand = ReactiveCommand.CreateFromTask(AddEmployeeAsync);
-            UpdateEmployeeCommand = ReactiveCommand.CreateFromTask(UpdateEmployeeAsync);
-            DeleteEmployeeCommand = ReactiveCommand.CreateFromTask(DeleteEmployeeAsync);
+            UpdateEmployeeCommand = ReactiveCommand.CreateFromTask(UpdateEmployeeAsync, this.WhenAnyValue(x => x.IsEmployeeSelected));
+            DeleteEmployeeCommand = ReactiveCommand.CreateFromTask(DeleteEmployeeAsync, this.WhenAnyValue(x => x.IsEmployeeSelected));
             RefreshCommand = ReactiveCommand.CreateFromTask(LoadEmployeesAsync);
             ResetFiltersCommand = ReactiveCommand.Create(ResetFilters);
-            OpenSalaryReportWindowCommand = ReactiveCommand.Create(OpenSalaryReportWindow);
+            OpenPayrollEmployeeListCommand = ReactiveCommand.Create(OpenPayrollEmployeeList);
+            BackToCompanySelectionCommand = ReactiveCommand.Create(BackToCompanySelection);
+            SaveReportCommand = ReactiveCommand.Create(SaveReport);
 
             _ = LoadEmployeesAsync();
         }
 
-        private async Task LoadEmployeesAsync()
+        protected async Task LoadEmployeesAsync()
         {
             var employeeDtos = await _employeeApiService.GetEmployeesByCompanyAsync(_companyName);
             _allEmployees = employeeDtos.Select(EmployeeMapper.FromReadDto).ToList();
@@ -183,33 +151,42 @@ namespace EmployeeManager.Desktop.ViewModels
             }
         }
 
-        private void ApplyFilters()
+        protected IEnumerable<Employee> GetFilteredEmployees()
         {
-            if (_allEmployees.Count == 0)
-                return;
-
             var filtered = _allEmployees.Where(e =>
                 (string.IsNullOrEmpty(SearchName) || e.FullName.Contains(SearchName, StringComparison.OrdinalIgnoreCase)) &&
                 (string.IsNullOrEmpty(SelectedPosition) || e.Position == SelectedPosition) &&
                 (string.IsNullOrEmpty(SelectedDepartment) || e.Department == SelectedDepartment) &&
-                (!MinSalary.HasValue || e.Salary >= MinSalary) &&
-                (!MaxSalary.HasValue || e.Salary <= MaxSalary) &&
                 (string.IsNullOrEmpty(SearchPhone) || e.Phone.Contains(SearchPhone)) &&
-                (string.IsNullOrEmpty(SearchAddress) || e.Address.Contains(SearchAddress)))
-                .ToList();
+                (string.IsNullOrEmpty(SearchAddress) || e.Address.Contains(SearchAddress)));
 
+            return filtered;
+        }
+
+        protected virtual void ApplyFilters()
+        {
+            if (_allEmployees.Count == 0)
+                return;
+
+            var filtered = GetFilteredEmployees();
+
+            UpdateEmloyeeListByFilters(filtered);
+        }
+
+        protected void UpdateEmloyeeListByFilters(IEnumerable<Employee> filteredEmployees)
+        {
             Employees.Clear();
-            foreach (var emp in filtered)
+            foreach (var emp in filteredEmployees)
                 Employees.Add(emp);
         }
 
-        private void ResetFilters()
+        protected virtual void ResetFilters()
         {
             SearchName = string.Empty;
             SelectedPosition = string.Empty;
             SelectedDepartment = string.Empty;
-            MinSalaryText = string.Empty;
-            MaxSalaryText = string.Empty;
+            SearchPhone = string.Empty;
+            SearchAddress = string.Empty;
 
             ApplyFilters();
         }
@@ -258,6 +235,58 @@ namespace EmployeeManager.Desktop.ViewModels
                 await dialog.ShowDialog(desktop.MainWindow);
 
             await LoadEmployeesAsync();
+        }
+
+        private void OpenPayrollEmployeeList()
+        {
+            var payrollViewModel = new PayrollEmployeeListView
+            {
+                DataContext = new PayrollEmployeeListViewModel(_companyName)
+            };
+
+            if (App.Current != null && App.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop &&
+                desktop.MainWindow is Window mainWindow)
+            {
+                mainWindow.Width = 880;
+                mainWindow.Height = 620;
+                MainWindowViewModel.Instance.CurrentView = payrollViewModel;
+            }
+        }
+
+        private void BackToCompanySelection()
+        {
+            var companySelectionView = new CompanySelectionView
+            {
+                DataContext = new CompanySelectionViewModel()
+            };
+
+            if (App.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop &&
+                desktop.MainWindow is Window mainWindow)
+            {
+                mainWindow.Width = 550;
+                mainWindow.Height = 330;
+                MainWindowViewModel.Instance.CurrentView = companySelectionView;
+            }
+        }
+
+        protected virtual async Task SaveReport()
+        {
+            string filters = string.Join("_", new[]
+            {
+                string.IsNullOrEmpty(CompanyName) ? null : $"Company-{CompanyName}",
+                string.IsNullOrEmpty(SearchName) ? null : $"Name-{SearchName}",
+                string.IsNullOrEmpty(SelectedPosition) ? null : $"Position-{SelectedPosition}",
+                string.IsNullOrEmpty(SelectedDepartment) ? null : $"Department-{SelectedDepartment}",
+                string.IsNullOrEmpty(SearchPhone) ? null : $"Phone-{SearchPhone}",
+                string.IsNullOrEmpty(SearchAddress) ? null : $"Address-{SearchAddress}"
+            }.Where(f => f != null));
+
+            string reportName = string.IsNullOrEmpty(filters) ? "EmployeeListReport.txt" : $"EmployeeListReport_{filters}.txt";
+
+            await _reportSaver.SaveReportAsync(_allEmployees
+                .Select(EmployeeMapper.FromEmployeeToEmployeeListElement)
+                .Cast<EmployeeBaseElement>()
+                .ToList(), reportName);
         }
     }
 }

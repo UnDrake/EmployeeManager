@@ -19,6 +19,7 @@
       <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="ConsoleTables" Version="2.6.2" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.3" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.3" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.3" />
@@ -31,5 +32,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Models\EmployeeManager.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\TotalSalaryReportWindowByFilter.axaml.cs">
+      <DependentUpon>TotalSalaryReportWindowByFilter.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

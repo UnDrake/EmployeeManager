@@ -107,3 +107,5 @@ D:\MVCProject\EmployeeManager\EmployeeManager.Desktop\obj\Debug\net8.0\refint\Av
 D:\MVCProject\EmployeeManager\EmployeeManager.Desktop\obj\Debug\net8.0\Employee.1B810369.Up2Date
 D:\MVCProject\EmployeeManager\EmployeeManager.Desktop\obj\Debug\net8.0\EmployeeManager.Desktop.genruntimeconfig.cache
 D:\MVCProject\EmployeeManager\EmployeeManager.Desktop\obj\Debug\net8.0\ref\EmployeeManager.Desktop.dll
+D:\MVCProject\EmployeeManager\EmployeeManager.Desktop\bin\Debug\net8.0\ConsoleTables.dll
+D:\MVCProject\EmployeeManager\EmployeeManager.Desktop\bin\Debug\net8.0\Wcwidth.dll
