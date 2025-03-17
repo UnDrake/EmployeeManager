@@ -19,20 +19,12 @@
       "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\viewmodels\\payrollemployeelistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|D:\\MVCProject\\EmployeeManager\\CreateDataBaseScript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|solutionrelative:CreateDataBaseScript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+      "AbsoluteMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|SQL{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|D:\\MVCProject\\EmployeeManager\\SeedData.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|SQL{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|solutionrelative:SeedData.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|D:\\MVCProject\\EmployeeManager\\SeedData.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|solutionrelative:SeedData.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|D:\\MVCProject\\EmployeeManager\\CreateDataBaseScript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|solutionrelative:CreateDataBaseScript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|D:\\MVCProject\\EmployeeManager\\SeedData.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|solutionrelative:SeedData.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+      "AbsoluteMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|SQL{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|D:\\MVCProject\\EmployeeManager\\CreateDataBaseScript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|SQL{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|solutionrelative:CreateDataBaseScript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -88,7 +80,7 @@
               "RelativeDocumentMoniker": "EmployeeManager.Desktop\\ViewModels\\EmployeeDetailViewModel.cs",
               "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\EmployeeDetailViewModel.cs",
               "RelativeToolTip": "EmployeeManager.Desktop\\ViewModels\\EmployeeDetailViewModel.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAAADEAAAAuAAAA",
+              "ViewState": "AQIAACMAAAAAAAAAAAAAADEAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-17T17:08:49.731Z",
               "EditorCaption": ""
@@ -102,8 +94,7 @@
               "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\PayrollEmployeeListView.axaml",
               "RelativeToolTip": "EmployeeManager.Desktop\\Views\\PayrollEmployeeListView.axaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-17T17:07:36.336Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-17T17:07:36.336Z"
             },
             {
               "$type": "Document",
@@ -114,8 +105,7 @@
               "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\EmployeeDetailView.axaml",
               "RelativeToolTip": "EmployeeManager.Desktop\\Views\\EmployeeDetailView.axaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-17T17:07:28.218Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-17T17:07:28.218Z"
             },
             {
               "$type": "Document",
@@ -127,32 +117,29 @@
               "RelativeToolTip": "EmployeeManager.Desktop\\ViewModels\\PayrollEmployeeListViewModel.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAAwBsAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T17:07:17.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-17T17:07:17.113Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SeedData.sql ",
+              "DocumentIndex": 4,
+              "Title": "SeedData.sql",
               "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\SeedData.sql",
               "RelativeDocumentMoniker": "SeedData.sql",
               "ToolTip": "D:\\MVCProject\\EmployeeManager\\SeedData.sql",
               "RelativeToolTip": "SeedData.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-03-17T17:02:42.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-17T17:02:42.434Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CreateDataBaseScript.sql",
               "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\CreateDataBaseScript.sql",
               "RelativeDocumentMoniker": "CreateDataBaseScript.sql",
               "ToolTip": "D:\\MVCProject\\EmployeeManager\\CreateDataBaseScript.sql",
               "RelativeToolTip": "CreateDataBaseScript.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-03-17T16:30:22.362Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-17T16:30:22.362Z"
             }
           ]
         }
