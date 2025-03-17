@@ -7,8 +7,8 @@ namespace EmployeeManager.Data.Repositories
 {
     public class CompanyRepository : BaseRepository
     {
-        public CompanyRepository(DatabaseConnection database, ILogger<CompanyRepository> logger) 
-            : base(database, logger) { }
+        public CompanyRepository(DatabaseConnection databaseConnection, ILogger<CompanyRepository> logger) 
+            : base(databaseConnection, logger) { }
 
         public async Task<IEnumerable<Company>> GetAllAsync()
         {
@@ -24,7 +24,7 @@ namespace EmployeeManager.Data.Repositories
         public async Task<int> GetOrCreateCompanyAsync(string companyName)
         {
             if (string.IsNullOrWhiteSpace(companyName))
-                throw new ArgumentException("Company name cannot be null or empty", nameof(companyName));
+                throw new ArgumentException("Company name cannot be null or empty.", nameof(companyName));
 
             string query = "SELECT ID FROM Companies WHERE Name = @CompanyName";
             SqlParameter[] parameters = { new SqlParameter("@CompanyName", companyName) };

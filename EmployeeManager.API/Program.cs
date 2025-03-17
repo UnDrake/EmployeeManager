@@ -11,7 +11,7 @@ builder.Logging.AddConsole();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
                       ?? throw new InvalidOperationException("Database connection string is missing.");
 
-builder.Services.AddSingleton(new DatabaseConnection(connectionString));
+builder.Services.AddScoped(provider => new DatabaseConnection(connectionString));
 
 builder.Services.AddScoped<CompanyRepository>();
 builder.Services.AddScoped<EmployeeRepository>();
@@ -34,7 +34,9 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
-app.UseCors("AllowAll");
+var corsPolicy = builder.Configuration.GetValue<string>("CorsPolicy") ?? "AllowAll";
+app.UseCors(corsPolicy);
+
 app.UseRouting();
 app.UseAuthorization();
 app.MapControllers();

@@ -151,24 +151,17 @@ namespace EmployeeManager.Desktop.ViewModels
             }
         }
 
-        protected IEnumerable<Employee> GetFilteredEmployees()
+        protected virtual void ApplyFilters()
         {
+            if (_allEmployees.Count == 0)
+                return;
+
             var filtered = _allEmployees.Where(e =>
                 (string.IsNullOrEmpty(SearchName) || e.FullName.Contains(SearchName, StringComparison.OrdinalIgnoreCase)) &&
                 (string.IsNullOrEmpty(SelectedPosition) || e.Position == SelectedPosition) &&
                 (string.IsNullOrEmpty(SelectedDepartment) || e.Department == SelectedDepartment) &&
                 (string.IsNullOrEmpty(SearchPhone) || e.Phone.Contains(SearchPhone)) &&
                 (string.IsNullOrEmpty(SearchAddress) || e.Address.Contains(SearchAddress)));
-
-            return filtered;
-        }
-
-        protected virtual void ApplyFilters()
-        {
-            if (_allEmployees.Count == 0)
-                return;
-
-            var filtered = GetFilteredEmployees();
 
             UpdateEmloyeeListByFilters(filtered);
         }

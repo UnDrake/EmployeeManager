@@ -28,7 +28,7 @@ namespace EmployeeManager.Desktop.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    _logger.LogError("Error getting list of companies. Code: {StatusCode}", response.StatusCode);
+                    _logger.LogError("Error getting list of companies. Code: {StatusCode}.", response.StatusCode);
                     return new List<CompanyReadDto>();
                 }
 

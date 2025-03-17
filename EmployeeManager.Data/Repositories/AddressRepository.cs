@@ -6,13 +6,13 @@ namespace EmployeeManager.Data.Repositories
 {
     public class AddressRepository : BaseRepository
     {
-        public AddressRepository(DatabaseConnection database, ILogger<AddressRepository> logger)
-            : base(database, logger) { }
+        public AddressRepository(DatabaseConnection databaseConnection, ILogger<AddressRepository> logger)
+            : base(databaseConnection, logger) { }
 
         public async Task<int> GetOrCreateAddressAsync(string address)
         {
             if (string.IsNullOrWhiteSpace(address))
-                throw new ArgumentException("Address cannot be null or empty", nameof(address));
+                throw new ArgumentException("Address cannot be null or empty.", nameof(address));
 
             string query = "SELECT ID FROM Addresses WHERE Address = @Address";
             SqlParameter[] parameters = { new SqlParameter("@Address", address) };

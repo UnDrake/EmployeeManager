@@ -29,7 +29,7 @@ namespace EmployeeManager.Desktop.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    _logger.LogError("Error getting employees for company {Company}. Code: {StatusCode}", companyName, response.StatusCode);
+                    _logger.LogError("Error getting employees for company {Company}. Code: {StatusCode}.", companyName, response.StatusCode);
                     return new List<EmployeeReadDto>();
                 }
 
@@ -37,7 +37,7 @@ namespace EmployeeManager.Desktop.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error while querying employees by company");
+                _logger.LogError(ex, "Error while querying employees by company.");
                 return new List<EmployeeReadDto>();
             }
         }
@@ -50,7 +50,7 @@ namespace EmployeeManager.Desktop.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    _logger.LogError("Error adding employee. Code: {StatusCode}", response.StatusCode);
+                    _logger.LogError("Error adding employee. Code: {StatusCode}.", response.StatusCode);
                     return 0;
                 }
 
@@ -59,7 +59,7 @@ namespace EmployeeManager.Desktop.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error adding employee");
+                _logger.LogError(ex, "Error adding employee.");
                 return 0;
             }
         }
@@ -73,7 +73,7 @@ namespace EmployeeManager.Desktop.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error updating employee");
+                _logger.LogError(ex, "Error updating employee.");
                 return false;
             }
         }

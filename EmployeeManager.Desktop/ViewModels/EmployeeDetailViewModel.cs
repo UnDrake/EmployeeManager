@@ -22,6 +22,28 @@ namespace EmployeeManager.Desktop.ViewModels
             set => this.RaiseAndSetIfChanged(ref _errorMessage, value);
         }
 
+        private string _salaryText = string.Empty;
+        public string SalaryText
+        {
+            get => _salaryText;
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _salaryText, value);
+                Salary = decimal.TryParse(value, out var result) ? result : null;
+            }
+        }
+
+        private decimal? _salary;
+        public decimal? Salary
+        {
+            get => _salary;
+            private set
+            {
+                this.RaiseAndSetIfChanged(ref _salary, value);
+                _employee.Salary = Salary ?? 0m;
+            }
+        }
+
         public Employee Employee => _employee;
 
         public ICommand SaveCommand { get; }
@@ -32,6 +54,8 @@ namespace EmployeeManager.Desktop.ViewModels
             _employeeApiService = employeeApiService;
             _employee = employee ?? throw new ArgumentNullException(nameof(employee));
             _onClose = onClose ?? throw new ArgumentNullException(nameof(onClose));
+
+            _salaryText = _employee.Salary.ToString() ?? string.Empty;
 
             SaveCommand = ReactiveCommand.CreateFromTask(SaveAsync);
             CancelCommand = ReactiveCommand.Create(CloseDialog);

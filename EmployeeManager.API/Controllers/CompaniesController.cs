@@ -20,13 +20,13 @@ namespace EmployeeManager.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CompanyReadDto>>> GetCompanies()
         {
-            _logger.LogInformation("Fetching all companies");
+            _logger.LogInformation("Fetching all companies.");
 
             var companies = await _companyService.GetAllCompaniesAsync();
 
             if (companies == null || !companies.Any())
             {
-                _logger.LogWarning("No companies found");
+                _logger.LogWarning("No companies found.");
                 return NotFound("No companies available.");
             }
 

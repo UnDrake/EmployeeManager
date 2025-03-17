@@ -18,7 +18,8 @@
                    Foreground="White"
                    Margin="0 0 20 20"/>
 
-		<StackPanel Margin="0 0 0 10" Spacing="15">
+		<StackPanel Margin="0 0 0 10" 
+					Spacing="15">
 
 			<TextBox Text="{Binding Employee.FullName}"
                      Watermark="Full Name"
@@ -56,7 +57,7 @@
                      Padding="5"
                      HorizontalAlignment="Stretch"/>
 
-			<TextBox Text="{Binding Employee.Salary}"
+			<TextBox Text="{Binding SalaryText, Mode=TwoWay}"
                      Watermark="Salary"
                      Background="#7f58a2"
                      Foreground="Black"

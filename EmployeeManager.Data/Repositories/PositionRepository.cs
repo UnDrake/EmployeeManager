@@ -6,13 +6,13 @@ namespace EmployeeManager.Data.Repositories
 {
     public class PositionRepository : BaseRepository
     {
-        public PositionRepository(DatabaseConnection database, ILogger<PositionRepository> logger)
-            : base(database, logger) { }
+        public PositionRepository(DatabaseConnection databaseConnection, ILogger<PositionRepository> logger)
+            : base(databaseConnection, logger) { }
 
         public async Task<int> GetOrCreatePositionAsync(string positionName, int departmentID)
         {
             if (string.IsNullOrWhiteSpace(positionName))
-                throw new ArgumentException("Position name cannot be null or empty", nameof(positionName));
+                throw new ArgumentException("Position name cannot be null or empty.", nameof(positionName));
 
             string query = "SELECT ID FROM Positions WHERE Name = @PositionName AND DepartmentID = @DepartmentID";
             SqlParameter[] parameters =

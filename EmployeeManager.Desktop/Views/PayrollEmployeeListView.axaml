@@ -8,7 +8,8 @@
 		<vm:PayrollEmployeeListViewModel/>
 	</UserControl.DataContext>
 
-	<StackPanel Background="#5e3a8c" Margin="20">
+	<StackPanel Background="#5e3a8c" 
+				Margin="20">
 
 		<TextBlock Text="{Binding CompanyName} Company Payroll"
                    FontSize="20"
@@ -80,24 +81,45 @@
 					Padding="10"/>
 		</StackPanel>
 
-		<StackPanel Background="#5e3a8c" Margin="10,10,10,0">
+		<StackPanel Background="#5e3a8c" 
+					Margin="10,10,10,0">
 			<Grid ColumnDefinitions="200,140,170,180,*"
                   Background="#7f58a2">
 
 				<Border BorderBrush="White" BorderThickness="1" Grid.Column="0">
-					<TextBlock Text="Full Name" FontWeight="Bold" TextAlignment="Center" Padding="5" Foreground="White"/>
+					<TextBlock Text="Full Name" 
+							   FontWeight="Bold" 
+							   TextAlignment="Center" 
+							   Padding="5" 
+							   Foreground="White"/>
 				</Border>
 				<Border BorderBrush="White" BorderThickness="1" Grid.Column="1">
-					<TextBlock Text="Hire Date" FontWeight="Bold" TextAlignment="Center" Padding="5" Foreground="White"/>
+					<TextBlock Text="Hire Date" 
+							   FontWeight="Bold" 
+							   TextAlignment="Center" 
+							   Padding="5" 
+							   Foreground="White"/>
 				</Border>
 				<Border BorderBrush="White" BorderThickness="1" Grid.Column="2">
-					<TextBlock Text="Position" FontWeight="Bold" TextAlignment="Center" Padding="5" Foreground="White"/>
+					<TextBlock Text="Position" 
+							   FontWeight="Bold" 
+							   TextAlignment="Center" 
+							   Padding="5" 
+							   Foreground="White"/>
 				</Border>
 				<Border BorderBrush="White" BorderThickness="1" Grid.Column="3">
-					<TextBlock Text="Department" FontWeight="Bold" TextAlignment="Center" Padding="5" Foreground="White"/>
+					<TextBlock Text="Department" 
+							   FontWeight="Bold" 
+							   TextAlignment="Center"
+							   Padding="5"
+							   Foreground="White"/>
 				</Border>
 				<Border BorderBrush="White" BorderThickness="1" Grid.Column="4">
-					<TextBlock Text="Salary" FontWeight="Bold" TextAlignment="Center" Padding="5" Foreground="White"/>
+					<TextBlock Text="Salary" 
+							   FontWeight="Bold"
+							   TextAlignment="Center"
+							   Padding="5" 
+							   Foreground="White"/>
 				</Border>
 
 			</Grid>
@@ -124,23 +146,36 @@
 					<DataTemplate>
 						<Grid ColumnDefinitions="200,140,170,180,*">
 							<Border BorderBrush="White" BorderThickness="1" Grid.Column="0">
-								<TextBlock Text="{Binding FullName}" TextAlignment="Center" Padding="5" Foreground="White"/>
+								<TextBlock Text="{Binding FullName}" 
+										   TextAlignment="Center"
+										   Padding="5" 
+										   Foreground="White"/>
 							</Border>
-
 							<Border BorderBrush="White" BorderThickness="1" Grid.Column="1">
-								<TextBlock Text="{Binding HireDate, StringFormat='yyyy-MM-dd'}" TextAlignment="Center" Padding="5" Foreground="White"/>
+								<TextBlock Text="{Binding HireDate, StringFormat='yyyy-MM-dd'}" 
+										   TextAlignment="Center" 
+										   Padding="5" 
+							Foreground="White"/>
 							</Border>
-
 							<Border BorderBrush="White" BorderThickness="1" Grid.Column="2">
-								<TextBlock Text="{Binding Position}" TextAlignment="Center" Padding="5" Foreground="White" TextWrapping="Wrap"/>
+								<TextBlock Text="{Binding Position}" 
+										   TextAlignment="Center" 
+										   Padding="5" 
+										   Foreground="White"
+										   TextWrapping="Wrap"/>
 							</Border>
-
 							<Border BorderBrush="White" BorderThickness="1" Grid.Column="3">
-								<TextBlock Text="{Binding Department}" TextAlignment="Center" Padding="5" Foreground="White" TextWrapping="Wrap"/>
+								<TextBlock Text="{Binding Department}" 
+										   TextAlignment="Center"
+										   Padding="5" 
+										   Foreground="White"
+										   TextWrapping="Wrap"/>
 							</Border>
-
 							<Border BorderBrush="White" BorderThickness="1" Grid.Column="4">
-								<TextBlock Text="{Binding Salary}" TextAlignment="Center" Padding="5" Foreground="White"/>
+								<TextBlock Text="{Binding Salary}" 
+										   TextAlignment="Center"
+										   Padding="5" 
+										   Foreground="White"/>
 							</Border>
 						</Grid>
 					</DataTemplate>

@@ -12,12 +12,12 @@ namespace EmployeeManager.Data.Repositories
         private readonly PositionRepository _positionRepository;
         private readonly AddressRepository _addressRepository;
 
-        public EmployeeRepository(DatabaseConnection database,
+        public EmployeeRepository(DatabaseConnection databaseConnection,
                                   CompanyRepository companyRepository,
                                   DepartmentRepository departmentRepository,
                                   PositionRepository positionRepository,
                                   AddressRepository addressRepository,
-                                  ILogger<EmployeeRepository> logger) : base(database, logger)
+                                  ILogger<EmployeeRepository> logger) : base(databaseConnection, logger)
         {
             _companyRepository = companyRepository ?? throw new ArgumentNullException(nameof(companyRepository));
             _departmentRepository = departmentRepository ?? throw new ArgumentNullException(nameof(departmentRepository));
@@ -58,7 +58,7 @@ namespace EmployeeManager.Data.Repositories
         public async Task<int> CreateAsync(Employee entity)
         {
             int companyID = await _companyRepository.GetOrCreateCompanyAsync(entity.Company);
-            int departmentID = await _departmentRepository.GetOrCreateDepartmentAsync(entity.Department, companyID);
+            int departmentID = await _departmentRepository.GetOrCreateDepartmentAsync(entity.Department);
             int positionID = await _positionRepository.GetOrCreatePositionAsync(entity.Position, departmentID);
             int addressID = await _addressRepository.GetOrCreateAddressAsync(entity.Address);
 
@@ -86,7 +86,7 @@ namespace EmployeeManager.Data.Repositories
         public async Task<bool> UpdateAsync(Employee entity)
         {
             int companyID = await _companyRepository.GetOrCreateCompanyAsync(entity.Company);
-            int departmentID = await _departmentRepository.GetOrCreateDepartmentAsync(entity.Department, companyID);
+            int departmentID = await _departmentRepository.GetOrCreateDepartmentAsync(entity.Department);
             int positionID = await _positionRepository.GetOrCreatePositionAsync(entity.Position, departmentID);
             int addressID = await _addressRepository.GetOrCreateAddressAsync(entity.Address);
 

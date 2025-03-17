@@ -1,7 +1,40 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\MVCProject\\EmployeeManager\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\viewmodels\\employeedetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\viewmodels\\employeedetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\views\\employeedetailview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\views\\employeedetailview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\views\\payrollemployeelistview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\views\\payrollemployeelistview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|d:\\mvcproject\\employeemanager\\employeemanager.desktop\\viewmodels\\payrollemployeelistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3ADE8BF8-6D82-4B07-8D2A-1FA5944D0765}|EmployeeManager.Desktop\\EmployeeManager.Desktop.csproj|solutionrelative:employeemanager.desktop\\viewmodels\\payrollemployeelistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|D:\\MVCProject\\EmployeeManager\\CreateDataBaseScript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|solutionrelative:CreateDataBaseScript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|D:\\MVCProject\\EmployeeManager\\SeedData.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|solutionrelative:SeedData.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|D:\\MVCProject\\EmployeeManager\\CreateDataBaseScript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|solutionrelative:CreateDataBaseScript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|D:\\MVCProject\\EmployeeManager\\SeedData.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}|solutionrelative:SeedData.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,6 +79,80 @@
             {
               "$type": "Bookmark",
               "Name": "ST:6:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmployeeDetailViewModel.cs",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\EmployeeDetailViewModel.cs",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\ViewModels\\EmployeeDetailViewModel.cs",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\EmployeeDetailViewModel.cs",
+              "RelativeToolTip": "EmployeeManager.Desktop\\ViewModels\\EmployeeDetailViewModel.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAAADEAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T17:08:49.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PayrollEmployeeListView.axaml",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\PayrollEmployeeListView.axaml",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\Views\\PayrollEmployeeListView.axaml",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\PayrollEmployeeListView.axaml",
+              "RelativeToolTip": "EmployeeManager.Desktop\\Views\\PayrollEmployeeListView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-17T17:07:36.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmployeeDetailView.axaml",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\EmployeeDetailView.axaml",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\Views\\EmployeeDetailView.axaml",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\Views\\EmployeeDetailView.axaml",
+              "RelativeToolTip": "EmployeeManager.Desktop\\Views\\EmployeeDetailView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-17T17:07:28.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PayrollEmployeeListViewModel.cs",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\PayrollEmployeeListViewModel.cs",
+              "RelativeDocumentMoniker": "EmployeeManager.Desktop\\ViewModels\\PayrollEmployeeListViewModel.cs",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\EmployeeManager.Desktop\\ViewModels\\PayrollEmployeeListViewModel.cs",
+              "RelativeToolTip": "EmployeeManager.Desktop\\ViewModels\\PayrollEmployeeListViewModel.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwBsAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T17:07:17.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SeedData.sql ",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\SeedData.sql",
+              "RelativeDocumentMoniker": "SeedData.sql",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\SeedData.sql",
+              "RelativeToolTip": "SeedData.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-17T17:02:42.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CreateDataBaseScript.sql",
+              "DocumentMoniker": "D:\\MVCProject\\EmployeeManager\\CreateDataBaseScript.sql",
+              "RelativeDocumentMoniker": "CreateDataBaseScript.sql",
+              "ToolTip": "D:\\MVCProject\\EmployeeManager\\CreateDataBaseScript.sql",
+              "RelativeToolTip": "CreateDataBaseScript.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-17T16:30:22.362Z",
+              "EditorCaption": ""
             }
           ]
         }

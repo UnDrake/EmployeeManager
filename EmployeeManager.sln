@@ -13,6 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.API", "Empl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Shared", "Models\EmployeeManager.Shared.csproj", "{1E81812A-727B-499A-9405-3A4BDB679D21}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{D5091CB3-0BD8-486B-B478-AA2500B2ADBD}"
+	ProjectSection(SolutionItems) = preProject
+		CreateDataBaseScript.sql = CreateDataBaseScript.sql
+		SeedData.sql = SeedData.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

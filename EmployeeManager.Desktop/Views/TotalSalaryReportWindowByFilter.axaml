@@ -9,12 +9,25 @@
 		<vm:TotalSalaryReportByFilterViewModel/>
 	</Window.DataContext>
 
-	<StackPanel Background="#5e3a8c" Margin="20" HorizontalAlignment="Center">
-		<TextBlock Text="Total salaries by filter" FontSize="20" HorizontalAlignment="Center"
-                   VerticalAlignment="Center" Foreground="White" Margin="10"/>
+	<StackPanel Background="#5e3a8c" 
+				Margin="20" 
+				HorizontalAlignment="Center">
+		<TextBlock Text="Total salaries by filter" 
+				   FontSize="20" 
+				   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" 
+				   Foreground="White" 
+				   Margin="10"/>
 
-		<Border BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="20" Padding="10">
-			<TextBlock Text="{Binding TotalSalary}" FontSize="24" Foreground="White" HorizontalAlignment="Center"/>
+		<Border BorderBrush="White" 
+				BorderThickness="2" 
+				CornerRadius="10" 
+				Margin="20" 
+				Padding="10">
+			<TextBlock Text="{Binding TotalSalary}" 
+					   FontSize="24" 
+					   Foreground="White" 
+					   HorizontalAlignment="Center"/>
 		</Border>
 	</StackPanel>
 </Window>

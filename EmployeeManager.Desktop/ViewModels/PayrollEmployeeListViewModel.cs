@@ -3,11 +3,9 @@ using Avalonia.Controls;
 using EmployeeManager.Desktop.Views;
 using ReactiveUI;
 using System;
-using System.IO;
 using System.Linq;
 using System.Windows.Input;
 using EmployeeManager.Desktop.Utils;
-using Microsoft.Extensions.DependencyInjection;
 using EmployeeManager.Shared.ModelsToSave;
 using System.Threading.Tasks;
 
@@ -69,9 +67,13 @@ namespace EmployeeManager.Desktop.ViewModels
             if (_allEmployees.Count == 0)
                 return;
 
-            var filtered = GetFilteredEmployees().Where(e =>
+            var filtered = _allEmployees.Where(e =>
+                (string.IsNullOrEmpty(SearchName) || e.FullName.Contains(SearchName, StringComparison.OrdinalIgnoreCase)) &&
+                (string.IsNullOrEmpty(SelectedPosition) || e.Position == SelectedPosition) &&
+                (string.IsNullOrEmpty(SelectedDepartment) || e.Department == SelectedDepartment) &&
                 (!MinSalary.HasValue || e.Salary >= MinSalary) &&
-                (!MaxSalary.HasValue || e.Salary <= MaxSalary));
+                (!MaxSalary.HasValue || e.Salary <= MaxSalary)
+            );
 
             UpdateEmloyeeListByFilters(filtered);
         }
@@ -83,6 +85,9 @@ namespace EmployeeManager.Desktop.ViewModels
             SelectedDepartment = string.Empty;
             MinSalaryText = string.Empty;
             MaxSalaryText = string.Empty;
+
+            MinSalary = null;
+            MaxSalary = null;
 
             ApplyFilters();
         }
@@ -99,13 +104,13 @@ namespace EmployeeManager.Desktop.ViewModels
         protected override async Task SaveReport()
         {
             string filters = string.Join("_", new[]
-{
+            {
                 string.IsNullOrEmpty(CompanyName) ? null : $"Company-{CompanyName}",
                 string.IsNullOrEmpty(SearchName) ? null : $"Name-{SearchName}",
                 string.IsNullOrEmpty(SelectedPosition) ? null : $"Position-{SelectedPosition}",
                 string.IsNullOrEmpty(SelectedDepartment) ? null : $"Department-{SelectedDepartment}",
-                string.IsNullOrEmpty(MinSalary.ToString()) ? null : $"Phone-{SearchPhone}",
-                string.IsNullOrEmpty(MaxSalary.ToString()) ? null : $"Address-{SearchAddress}"
+                MinSalary.HasValue ? $"MinSalary-{MinSalary}" : null,
+                MaxSalary.HasValue ? $"MaxSalary-{MaxSalary}" : null
             }.Where(f => f != null));
 
             string reportName = string.IsNullOrEmpty(filters) ? "EmployeePayrollList.txt" : $"EmployeePayrollList_{filters}.txt";

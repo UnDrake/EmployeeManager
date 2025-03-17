@@ -1,6 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
 
-
 namespace EmployeeManager.Infrastructure
 {
     public class DatabaseConnection

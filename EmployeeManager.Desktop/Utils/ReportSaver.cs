@@ -43,13 +43,13 @@ namespace EmployeeManager.Desktop.Utils
                 string tableContent = table.ToString();
                 File.WriteAllText(filePath, tableContent);
 
-                _logger.LogInformation($"Salary report saved successfully to {filePath}");
+                _logger.LogInformation($"Report saved successfully to {filePath}.");
 
                 await ShowReportSavedWindow($"{Path.GetFullPath(filePath)}");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error saving salary report to {FilePath}", filePath);
+                _logger.LogError(ex, "Error saving report to {FilePath}.", filePath);
                 await ShowReportSavedWindow($"{ex.Message}");
             }
         }
