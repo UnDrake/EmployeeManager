@@ -51,7 +51,6 @@ Before running the application, you need to create and populate the database.
    ```
 
 ### 2. Running the Application
-1. Open the project in **Visual Studio**.
+1. You may need to update the **database connection string** in `appsettings.json` to match your database configuration.
 2. Build and run the application.
 3. Navigate through the **menu** to access different features.
-4. You may need to update the **database connection string** in `appsettings.json` to match your database configuration.
